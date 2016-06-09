@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xSo-3y-Prv">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-BlackItalic.ttf">
+            <string>Roboto-BlackItalic</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Italic.ttf">
+            <string>Roboto-Italic</string>
+            <string>Roboto-Italic</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Dec-WC-OOh">
+                                <rect key="frame" x="-8" y="0.0" width="336" height="568"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heX-jN-JX2">
+                                <rect key="frame" x="92" y="215" width="136" height="137"/>
+                                <state key="normal" backgroundImage="Button"/>
+                                <connections>
+                                    <action selector="askHelp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I7a-Xd-Ioc"/>
+                                    <segue destination="Lr5-T7-BvZ" kind="modal" id="3Ln-C5-pj6"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Girl" translatesAutoresizingMaskIntoConstraints="NO" id="OMU-6o-w7k">
+                                <rect key="frame" x="-12" y="65" width="120" height="185"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HelpMigaLabel" translatesAutoresizingMaskIntoConstraints="NO" id="cfU-qP-Ufj">
+                                <rect key="frame" x="91" y="366" width="138" height="150"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ymV-av-tTf"/>
+                    <connections>
+                        <outlet property="girl" destination="OMU-6o-w7k" id="dIY-ET-LQQ"/>
+                        <outlet property="helpButton" destination="heX-jN-JX2" id="3xk-hI-YZY"/>
+                        <outlet property="helpMigaLabel" destination="cfU-qP-Ufj" id="JAH-EY-FIs"/>
+                        <outlet property="mapView" destination="Dec-WC-OOh" id="jse-7D-AB5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662" y="330"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="bn8-70-b1Z">
+            <objects>
+                <viewController id="Lr5-T7-BvZ" customClass="ViewController2" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YHZ-m7-B0X"/>
+                        <viewControllerLayoutGuide type="bottom" id="SFV-ae-vgS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9fx-Nq-c4e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpBG" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-od-uiG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="434"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCQ-uk-uyx">
+                                <rect key="frame" x="13" y="446" width="291" height="42"/>
+                                <state key="normal" image="callMiga1"/>
+                                <connections>
+                                    <action selector="ligarParaMigaEmPerigo:" destination="Lr5-T7-BvZ" eventType="touchUpInside" id="8mH-yL-QK1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A94-go-pPF">
+                                <rect key="frame" x="15" y="506" width="291" height="42"/>
+                                <state key="normal" backgroundImage="imGoingMiga"/>
+                                <connections>
+                                    <action selector="estouIndoMiga:" destination="Lr5-T7-BvZ" eventType="touchUpInside" id="pxq-9f-aYA"/>
+                                    <segue destination="Ss9-3M-vfs" kind="modal" id="1gR-VP-Nf8"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
+                                <rect key="frame" x="13" y="213" width="295" height="198"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="precisa de ajuda!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmY-wo-Y1e">
+                                <rect key="frame" x="20" y="143" width="280" height="28"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="selfieMigaEmPerigo" translatesAutoresizingMaskIntoConstraints="NO" id="641-gZ-zFX">
+                                <rect key="frame" x="120" y="22" width="81" height="81"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Isabela" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKT-5Q-qik">
+                                <rect key="frame" x="20" y="109" width="280" height="40"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="34"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ela está a 5 minutos de você." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huF-Ul-q9L">
+                                <rect key="frame" x="20" y="184" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="fotoMigaEmPerigo" destination="641-gZ-zFX" id="Ouy-WT-RCZ"/>
+                        <outlet property="nomeMigaEmPerigo" destination="PKT-5Q-qik" id="wcK-FX-dog"/>
+                        <outlet property="rotaParaMigaEmPerigo" destination="2nQ-bg-Yuy" id="t8g-6e-H1v"/>
+                        <outlet property="tempoParaMigaEmPerigo" destination="huF-Ul-q9L" id="Gbs-8k-aNc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VKg-Uq-2iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011" y="330"/>
+        </scene>
+        <!--View Controller3-->
+        <scene sceneID="6T8-dJ-KlN">
+            <objects>
+                <viewController id="Ss9-3M-vfs" customClass="ViewController3" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uTm-8Z-gCW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ox7-Tr-mcJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fEr-RE-XbV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m3Z-CK-hA9">
+                                <rect key="frame" x="-8" y="0.0" width="336" height="568"/>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="migaNotification" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-WK-xxX" customClass="mig">
+                                <rect key="frame" x="41" y="215" width="238" height="194"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pri" translatesAutoresizingMaskIntoConstraints="NO" id="gut-cl-0fY">
+                                <rect key="frame" x="118" y="175" width="81" height="81"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="War-ny-gou">
+                                <rect key="frame" x="55" y="347" width="94" height="42"/>
+                                <state key="normal" backgroundImage="migaNotificationLigar"/>
+                                <connections>
+                                    <action selector="ligar:" destination="Ss9-3M-vfs" eventType="touchUpInside" id="eeX-RE-DOw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n76-Cb-XKc">
+                                <rect key="frame" x="169" y="347" width="94" height="42"/>
+                                <state key="normal" backgroundImage="migaNotificationOk"/>
+                                <connections>
+                                    <action selector="ok:" destination="Ss9-3M-vfs" eventType="touchUpInside" id="fmy-fc-hdL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
+                                <rect key="frame" x="53" y="264" width="216" height="28"/>
+                                <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
+                                <rect key="frame" x="53" y="311" width="216" height="28"/>
+                                <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
+                                <rect key="frame" x="55" y="292" width="208" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-BlackItalic" family="Roboto" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="botaoLigar" destination="War-ny-gou" id="QQp-sw-bX9"/>
+                        <outlet property="botaoOk" destination="n76-Cb-XKc" id="aTK-ol-Vrz"/>
+                        <outlet property="calmaMigaLabel" destination="0MA-ol-mbR" id="CSl-S1-fcC"/>
+                        <outlet property="estaVindoLabel" destination="Na6-jz-CeP" id="OfC-Aq-Chk"/>
+                        <outlet property="mapView" destination="m3Z-CK-hA9" id="v9f-Ya-k9s"/>
+                        <outlet property="miga" destination="gut-cl-0fY" id="8B9-wu-58v"/>
+                        <outlet property="nomeMigaLabel" destination="gOK-QY-o2d" id="l7I-v1-DbH"/>
+                        <outlet property="notificationBG" destination="ZMd-WK-xxX" id="S68-ge-jMW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oiN-yA-uvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="330"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="uV4-iJ-Skb">
+            <objects>
+                <viewController id="xSo-3y-Prv" customClass="Login" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y2C-dn-EOS"/>
+                        <viewControllerLayoutGuide type="bottom" id="kjT-me-ju6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XG9-Y8-L5p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="2TZ-5H-tC2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpMigaImage" translatesAutoresizingMaskIntoConstraints="NO" id="rrz-QE-S8Z">
+                                <rect key="frame" x="83" y="129" width="154" height="122"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-XE-Du1">
+                                <rect key="frame" x="11" y="399" width="116" height="42"/>
+                                <state key="normal" backgroundImage="botaoCadastrar"/>
+                                <connections>
+                                    <segue destination="I6D-hx-1X2" kind="modal" id="tbJ-7G-ExQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-km-tVp">
+                                <rect key="frame" x="190" y="399" width="116" height="42"/>
+                                <state key="normal" backgroundImage="botaoEntrar"/>
+                                <connections>
+                                    <action selector="entrar:" destination="xSo-3y-Prv" eventType="touchUpInside" id="2UI-Sr-yhV"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="usuárioField" translatesAutoresizingMaskIntoConstraints="NO" id="ACX-qs-DGq">
+                                <rect key="frame" x="15" y="275" width="291" height="42"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="senhaField" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-eP-dou">
+                                <rect key="frame" x="15" y="335" width="291" height="42"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03Y-B9-hPS">
+                                <rect key="frame" x="51" y="281" width="239" height="30"/>
+                                <color key="textColor" red="0.9137254901960784" green="0.11764705882352941" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yj5-nV-ltx">
+                                <rect key="frame" x="51" y="341" width="239" height="30"/>
+                                <color key="textColor" red="0.9137254901960784" green="0.11764705882352941" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="03Y-B9-hPS" id="fXu-iF-34p"/>
+                        <outlet property="senha" destination="Yj5-nV-ltx" id="VZ9-6S-4wo"/>
+                        <segue destination="BYZ-38-t0r" kind="modal" identifier="irParaPrincipal" id="XoT-D2-S5e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCZ-VX-mmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="330"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Xtp-U5-Ah7">
+            <objects>
+                <viewController id="I6D-hx-1X2" customClass="Cadastro" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H6I-Py-xZl"/>
+                        <viewControllerLayoutGuide type="bottom" id="cYB-u7-bnQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ecg-Hg-k1f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="83b-PI-bNF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nomeCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="X5j-4S-onQ">
+                                <rect key="frame" x="15" y="86" width="291" height="42"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emailCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="fYn-1y-xAW">
+                                <rect key="frame" x="15" y="146" width="291" height="42"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="senhaCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="djO-j1-LQU">
+                                <rect key="frame" x="15" y="207" width="291" height="42"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="repetirSenhaCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="Vv3-O0-qlZ">
+                                <rect key="frame" x="15" y="268" width="291" height="42"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24M-uk-2U9">
+                                <rect key="frame" x="51" y="441" width="225" height="42"/>
+                                <state key="normal" backgroundImage="botaoAprovar"/>
+                                <connections>
+                                    <action selector="enviarParaAprovacao:" destination="I6D-hx-1X2" eventType="touchUpInside" id="3Mv-Ca-CJo"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rBK-2a-n2f">
+                                <rect key="frame" x="51" y="92" width="236" height="30"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-yx-JhG">
+                                <rect key="frame" x="51" y="152" width="236" height="30"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrt-J5-qWr">
+                                <rect key="frame" x="51" y="213" width="236" height="30"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repetir senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaJ-97-bYT">
+                                <rect key="frame" x="51" y="274" width="236" height="30"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="botaoAddFotos" translatesAutoresizingMaskIntoConstraints="NO" id="yI4-9u-GSp">
+                                <rect key="frame" x="25" y="360" width="139" height="42"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owC-co-0uj">
+                                <rect key="frame" x="250" y="350" width="44" height="52"/>
+                                <state key="normal" backgroundImage="botaoSelfie"/>
+                                <connections>
+                                    <action selector="botaoSelfie:" destination="I6D-hx-1X2" eventType="touchUpInside" id="tiw-Xb-qpe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZA-yq-Vke">
+                                <rect key="frame" x="200" y="339" width="31" height="63"/>
+                                <state key="normal" backgroundImage="botaoId"/>
+                                <connections>
+                                    <action selector="botaoId:" destination="I6D-hx-1X2" eventType="touchUpInside" id="tEa-GQ-bme"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUJ-Sm-hrF">
+                                <rect key="frame" x="20" y="20" width="25" height="35"/>
+                                <state key="normal" backgroundImage="backButton"/>
+                                <connections>
+                                    <segue destination="xSo-3y-Prv" kind="modal" id="FgQ-ua-uOn"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSy-Vh-XhT">
+                                <rect key="frame" x="195" y="339" width="44" height="63"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ry-22-Hrc">
+                                <rect key="frame" x="250" y="339" width="44" height="63"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="qaV-rA-kFU"/>
+                    <connections>
+                        <outlet property="email" destination="5oH-yx-JhG" id="wd7-7q-Dcj"/>
+                        <outlet property="imageViewId" destination="WSy-Vh-XhT" id="0CP-bT-Qdw"/>
+                        <outlet property="imageViewSelfie" destination="9Ry-22-Hrc" id="WZl-B7-ltc"/>
+                        <outlet property="nome" destination="rBK-2a-n2f" id="S9Z-gL-Z7K"/>
+                        <outlet property="repetirSenha" destination="YaJ-97-bYT" id="bpI-ZA-g7c"/>
+                        <outlet property="senha" destination="qrt-J5-qWr" id="GxM-SD-QZk"/>
+                        <segue destination="BYZ-38-t0r" kind="modal" identifier="irParaPrincipal" id="QSc-Yt-ILM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTe-Ik-H9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FDb-wZ-Ji2"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="975"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Button" width="136" height="137"/>
+        <image name="Girl" width="82" height="156"/>
+        <image name="HelpMigaLabel" width="132" height="131"/>
+        <image name="backButton" width="26" height="40"/>
+        <image name="botaoAddFotos" width="138" height="40"/>
+        <image name="botaoAprovar" width="225" height="42"/>
+        <image name="botaoCadastrar" width="116" height="42"/>
+        <image name="botaoEntrar" width="116" height="42"/>
+        <image name="botaoId" width="31" height="60"/>
+        <image name="botaoSelfie" width="43" height="50"/>
+        <image name="callMiga1" width="291" height="42"/>
+        <image name="emailCadastro" width="291" height="42"/>
+        <image name="helpBG" width="320" height="445"/>
+        <image name="helpMigaImage" width="151" height="124"/>
+        <image name="imGoingMiga" width="291" height="42"/>
+        <image name="loginBG" width="320" height="568"/>
+        <image name="migaNotification" width="250" height="206"/>
+        <image name="migaNotificationLigar" width="94" height="42"/>
+        <image name="migaNotificationOk" width="94" height="42"/>
+        <image name="nomeCadastro" width="291" height="42"/>
+        <image name="pri" width="570" height="635"/>
+        <image name="repetirSenhaCadastro" width="291" height="42"/>
+        <image name="selfieMigaEmPerigo" width="700" height="864"/>
+        <image name="senhaCadastro" width="291" height="42"/>
+        <image name="senhaField" width="291" height="42"/>
+        <image name="usuárioField" width="291" height="42"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XoT-D2-S5e"/>
+    </inferredMetricsTieBreakers>
+</document>
