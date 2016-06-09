@@ -23,6 +23,7 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var miga: UIImageView!
     
     @IBOutlet weak var botaoLigar: UIButton!
+    
         
     @IBAction func ligar(sender: UIButton) {
 
