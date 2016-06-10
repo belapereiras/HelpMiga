@@ -7,26 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B14D2211CAAED2D00FD2A31 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14D2201CAAED2D00FD2A31 /* ViewController3.swift */; };
-		1B1EB9FA1CA9A436007745D7 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1EB9F91CA9A436007745D7 /* ViewController2.swift */; };
+		1B14D2211CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14D2201CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift */; };
+		1B1EB9FA1CA9A436007745D7 /* Tela_Miga_em_Perigo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1EB9F91CA9A436007745D7 /* Tela_Miga_em_Perigo.swift */; };
 		1B4375411CA2E27A00EC5333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4375401CA2E27A00EC5333 /* AppDelegate.swift */; };
-		1B4375431CA2E27A00EC5333 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4375421CA2E27A00EC5333 /* ViewController.swift */; };
+		1B4375431CA2E27A00EC5333 /* Tela_Botao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4375421CA2E27A00EC5333 /* Tela_Botao.swift */; };
 		1B4375461CA2E27A00EC5333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4375441CA2E27A00EC5333 /* Main.storyboard */; };
 		1B43754B1CA2E27A00EC5333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4375491CA2E27A00EC5333 /* LaunchScreen.storyboard */; };
 		1BBB397A1CAC544800840933 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB39791CAC544700840933 /* Login.swift */; };
 		1BBB397C1CAC557100840933 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB397B1CAC557100840933 /* Cadastro.swift */; };
 		1BBB397E1CAC6F2500840933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB397D1CAC6F2500840933 /* Assets.xcassets */; };
 		1BBB39801CAC755600840933 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB397F1CAC755600840933 /* Usuario.swift */; };
+		6E14B1DA1D09F76B00040E35 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14B1D91D09F76B00040E35 /* UserDAO.swift */; };
+		6E14B1DD1D09F7B100040E35 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E14B1DC1D09F7B100040E35 /* CloudKit.framework */; };
+		6E14B1DF1D09F82A00040E35 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14B1DE1D09F82A00040E35 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B14D2201CAAED2D00FD2A31 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		1B14D2201CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tela_Miga_a_Caminho.swift; sourceTree = "<group>"; };
 		1B14D2221CAC1C9000FD2A31 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
-		1B1EB9F91CA9A436007745D7 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		1B1EB9F91CA9A436007745D7 /* Tela_Miga_em_Perigo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tela_Miga_em_Perigo.swift; sourceTree = "<group>"; };
 		1B3B253C1CB320EF00F5AA4F /* MapKitTutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MapKitTutorial.entitlements; path = MapKitTutorial/MapKitTutorial.entitlements; sourceTree = "<group>"; };
 		1B43753D1CA2E27A00EC5333 /* MapKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4375401CA2E27A00EC5333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B4375421CA2E27A00EC5333 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1B4375421CA2E27A00EC5333 /* Tela_Botao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tela_Botao.swift; sourceTree = "<group>"; };
 		1B4375451CA2E27A00EC5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B43754A1CA2E27A00EC5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B43754C1CA2E27A00EC5333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +42,9 @@
 		1BBB397B1CAC557100840933 /* Cadastro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
 		1BBB397D1CAC6F2500840933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BBB397F1CAC755600840933 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		6E14B1D91D09F76B00040E35 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
+		6E14B1DC1D09F7B100040E35 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6E14B1DE1D09F82A00040E35 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E14B1DD1D09F7B100040E35 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +62,7 @@
 		1B4375341CA2E27A00EC5333 = {
 			isa = PBXGroup;
 			children = (
+				6E14B1DC1D09F7B100040E35 /* CloudKit.framework */,
 				1B3B253C1CB320EF00F5AA4F /* MapKitTutorial.entitlements */,
 				1B43753F1CA2E27A00EC5333 /* HelpMiga */,
 				1B43753E1CA2E27A00EC5333 /* Products */,
@@ -72,13 +80,14 @@
 		1B43753F1CA2E27A00EC5333 /* HelpMiga */ = {
 			isa = PBXGroup;
 			children = (
+				6E14B1DB1D09F77000040E35 /* Model */,
 				1B4375401CA2E27A00EC5333 /* AppDelegate.swift */,
 				1BBB397F1CAC755600840933 /* Usuario.swift */,
 				1BBB397B1CAC557100840933 /* Cadastro.swift */,
 				1BBB39791CAC544700840933 /* Login.swift */,
-				1B4375421CA2E27A00EC5333 /* ViewController.swift */,
-				1B1EB9F91CA9A436007745D7 /* ViewController2.swift */,
-				1B14D2201CAAED2D00FD2A31 /* ViewController3.swift */,
+				1B4375421CA2E27A00EC5333 /* Tela_Botao.swift */,
+				1B1EB9F91CA9A436007745D7 /* Tela_Miga_em_Perigo.swift */,
+				1B14D2201CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift */,
 				1B4375441CA2E27A00EC5333 /* Main.storyboard */,
 				1BBB397D1CAC6F2500840933 /* Assets.xcassets */,
 				1B4375491CA2E27A00EC5333 /* LaunchScreen.storyboard */,
@@ -92,6 +101,15 @@
 			);
 			name = HelpMiga;
 			path = MapKitTutorial;
+			sourceTree = "<group>";
+		};
+		6E14B1DB1D09F77000040E35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E14B1D91D09F76B00040E35 /* UserDAO.swift */,
+				6E14B1DE1D09F82A00040E35 /* Location.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,10 +144,10 @@
 				TargetAttributes = {
 					1B43753C1CA2E27A00EC5333 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = R3VU9CJ4FV;
+						DevelopmentTeam = 7S5BW22U4Y;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -172,12 +190,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BBB397C1CAC557100840933 /* Cadastro.swift in Sources */,
-				1B4375431CA2E27A00EC5333 /* ViewController.swift in Sources */,
+				1B4375431CA2E27A00EC5333 /* Tela_Botao.swift in Sources */,
 				1BBB39801CAC755600840933 /* Usuario.swift in Sources */,
+				6E14B1DA1D09F76B00040E35 /* UserDAO.swift in Sources */,
+				6E14B1DF1D09F82A00040E35 /* Location.swift in Sources */,
 				1BBB397A1CAC544800840933 /* Login.swift in Sources */,
 				1B4375411CA2E27A00EC5333 /* AppDelegate.swift in Sources */,
-				1B14D2211CAAED2D00FD2A31 /* ViewController3.swift in Sources */,
-				1B1EB9FA1CA9A436007745D7 /* ViewController2.swift in Sources */,
+				1B14D2211CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift in Sources */,
+				1B1EB9FA1CA9A436007745D7 /* Tela_Miga_em_Perigo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapKitTutorial/MapKitTutorial.entitlements;
 				INFOPLIST_FILE = MapKitTutorial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapKitTutorial/MapKitTutorial.entitlements;
 				INFOPLIST_FILE = MapKitTutorial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

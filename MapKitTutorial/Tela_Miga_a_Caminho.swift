@@ -15,34 +15,26 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     
     
     @IBOutlet weak var notificationBG: UIImageView!
-    
     @IBOutlet weak var mapView: MKMapView!
     
-        let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
 
     @IBOutlet weak var miga: UIImageView!
-    
     @IBOutlet weak var botaoLigar: UIButton!
-    
-        
     @IBAction func ligar(sender: UIButton) {
 
             
         let numero: NSURL = NSURL(string: "tel://995200650")!
             UIApplication.sharedApplication().openURL(numero)
     }
-    
-    
-    
+
     @IBOutlet weak var botaoOk: UIButton!
-    
     @IBAction func ok(sender: UIButton) {
         
         notificationBG.hidden = true
         miga.hidden = true
         botaoLigar.hidden = true
         botaoOk.hidden = true
-        
         calmaMigaLabel.hidden = true
         nomeMigaLabel.hidden = true
         estaVindoLabel.hidden = true
@@ -51,9 +43,7 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     
     
     @IBOutlet weak var calmaMigaLabel: UILabel!
-
     @IBOutlet weak var nomeMigaLabel: UILabel!
-    
     @IBOutlet weak var estaVindoLabel: UILabel!
     
     
@@ -65,13 +55,11 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         
         miga.layer.cornerRadius = miga.frame.size.width/2
         miga.clipsToBounds = true
-        
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        
         self.miga.layer.borderWidth = 4.0
         self.miga.layer.borderColor = UIColor.whiteColor().CGColor;
         
@@ -80,14 +68,11 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
 // MARK: MAP VIEW
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let location = locations.last
-        
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-        
         self.mapView.setRegion(region, animated: true)
-        
         self.locationManager.stopUpdatingLocation()
     }
     
@@ -101,19 +86,12 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     override func viewWillAppear(animated: Bool) {
         
         notificationBG.alpha = 0.0
-        
         miga.alpha = 0.0
-        
         botaoLigar.alpha = 0.0
-        
         botaoOk.alpha = 0.0
-        
         calmaMigaLabel.alpha = 0.0
-        
         nomeMigaLabel.alpha = 0.0
-        
         estaVindoLabel.alpha = 0.0
-        
     
     }
     
@@ -166,12 +144,6 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
             }, completion: nil)
 
     }
-    
-    
-  
-    
-    
-    
 }
     
 

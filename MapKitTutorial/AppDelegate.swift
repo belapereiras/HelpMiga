@@ -24,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 //        locationManager = CLLocationManager()
 //        locationManager!.requestWhenInUseAuthorization()
         
+//        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//        application.registerUserNotificationSettings(settings)
+        
+        application.registerForRemoteNotifications()
+        
+        UserDAO.sharedInstace.getUserID()
+//        UserDAO.sharedInstace.subscribeForFriendsLocations()
+        
         return true
     }
     

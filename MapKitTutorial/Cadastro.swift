@@ -12,22 +12,13 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     
     
     @IBOutlet weak var nome: UITextField!
-    
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var senha: UITextField!
-    
     @IBOutlet weak var repetirSenha: UITextField!
-    
-    
-
     @IBOutlet weak var imageViewId: UIImageView!
-    
     @IBOutlet weak var imageViewSelfie: UIImageView!
 //    var imageReceiver = UIImage()
     var botaoImagem:UIImageView = UIImageView()
-    
-    
     
     @IBAction func botaoId(sender: UIButton) {
         botaoImagem = imageViewId
@@ -45,9 +36,7 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
             self.presentViewController(idPicker, animated: true, completion: nil)
             
         }
-        
     }
-    
     
     @IBAction func botaoSelfie(sender: UIButton) {
         botaoImagem = imageViewSelfie
@@ -55,7 +44,6 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
             let selfiePicker = UIImagePickerController()
-            
             selfiePicker.delegate = self
             selfiePicker.sourceType = UIImagePickerControllerSourceType.Camera;
             selfiePicker.allowsEditing = false
@@ -63,13 +51,9 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
 //            imageViewSelfie.image = imageReceiver
             
             self.presentViewController(selfiePicker, animated: true, completion: nil)
-            
-            
+
         }
-        
     }
-    
-    
     
     @IBAction func enviarParaAprovacao(sender: UIButton) {
         
@@ -82,10 +66,7 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
 // MARK: VERIFICAR CAMPOS VAZIOS
         
         if nomeUsuaria?.isEmpty == true || emailUsuaria?.isEmpty == true || senhaUsuaria?.isEmpty == true || repetirSenhaUsuaria?.isEmpty == true {
-            
-            
             alerta ("Todos os campos devem ser preenchidos")
-            
         }
     
         
@@ -93,33 +74,25 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         
         
         if senhaUsuaria != repetirSenhaUsuaria {
-            
-            
             alerta ("As senhas não combinam")
-            
         }
         
         //
         
         
-        if imageViewId.image == nil {
+//        if imageViewId.image == nil {
+//            alerta("Você não incluiu a foto da sua identidade!")
+//        }
+//        
+//        if imageViewSelfie.image == nil {
+//            alerta("Você não incluiu a sua selfie!")
+//        }
             
-            alerta("Você não incluiu a foto da sua identidade!")
-            
-        }
-        
-        if imageViewSelfie.image == nil {
-            
-            alerta("Você não incluiu a sua selfie!")
-            
-            
-        }else{
-            
-            
-            
-            
+        else {
             alerta("Seus cadastro foi enviado com sucesso! Aguarde 1 dia útil para a aprovação. Enviaremos a resposta por email.")
         }
+        
+        UserDAO.sharedInstace.saveUser(nomeUsuaria!, email: emailUsuaria!, senha: senhaUsuaria!)
         
     }
     
@@ -134,33 +107,19 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.repetirSenha.delegate = self
     }
 
-
-
-
     func alerta(userMessage: String){
         
         let meuAlerta = UIAlertController(title: "Ops!", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
-        
         let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        
-        
         meuAlerta.addAction(okButton)
-        
         self.presentViewController(meuAlerta, animated: true, completion: nil)
         
     }
 
-    
-    
-    
     func textFieldShouldReturn(userText: UITextField) -> Bool {
         userText.resignFirstResponder()
         return true;
     }
-    
-    
-    
-
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
@@ -169,11 +128,7 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         
         self.dismissViewControllerAnimated(true, completion: nil);
     }
-
-
-
-    
-    
+  
 }
 
   

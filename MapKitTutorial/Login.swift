@@ -7,13 +7,11 @@
 //
 
 import UIKit
+import CloudKit
 
 class Login: UIViewController, UITextFieldDelegate {
     
-    
-    
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var senha: UITextField!
     
     
@@ -22,57 +20,60 @@ class Login: UIViewController, UITextFieldDelegate {
     
         
         
-        
-        if email.text == "belapereiras@icloud.com" && senha.text == "123"{
-            
-            performSegueWithIdentifier("irParaPrincipal", sender: sender)
-            
-        }else{
-            
-            alerta("Usuário ou senha inválidos")
-            
-        }
-        
+//        if email.text == "belapereiras@icloud.com" && senha.text == "123"{
+//            performSegueWithIdentifier("irParaPrincipal", sender: sender)
+//            
+//        } else {
+//
+//            alerta("Usuário ou senha inválidos")
+//            
+//        }
     }
-
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.email.delegate = self
         self.senha.delegate = self
-    
-
         
-}
+        
+        CKContainer.defaultContainer().accountStatusWithCompletionHandler { (accountStatus, error) in
+            
+            if accountStatus == CKAccountStatus.NoAccount {
+                
+                print("nao tem conta icloud")
+                
+            } else {
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    //tem que ter um outlet do botao entrar
+//                    self.entrar.enabled = true
+                    
+                    print("tem conta icloud")
+                    
+                }
+                
+            }
+        }
+        
+    }
     
     func alerta(userMessage: String){
         
         let meuAlerta = UIAlertController(title: "Alerta", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
-        
         let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        
-        
         meuAlerta.addAction(okButton)
-        
         self.presentViewController(meuAlerta, animated: true, completion: nil)
         
     }
 
-    
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
     
     func textFieldShouldReturn(userText: UITextField) -> Bool {
         userText.resignFirstResponder()
         return true;
     }
-    
-
-    
 }
