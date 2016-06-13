@@ -85,12 +85,6 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         print("Errors: " + error.localizedDescription)
     }
     
-    
-    
-        
-        
-        
-        
 }
     
     

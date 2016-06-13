@@ -19,6 +19,8 @@ class Login: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func entrar(sender: UIButton) {
+    
+        
         
         
         if email.text == "belapereiras@icloud.com" && senha.text == "123"{
