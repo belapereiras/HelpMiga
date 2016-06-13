@@ -17,8 +17,14 @@ class Login: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func entrar(sender: UIButton) {
-    
         
+        if email.text!.isEmpty == true || senha.text!.isEmpty == true {
+            alerta ("Todos os campos devem ser preenchidos")
+        } else {
+        
+        UserDAO.sharedInstace.verifyEmail(email.text!)
+        UserDAO.sharedInstace.verifyLogin(email.text!, senha: senha.text!)
+            
         
 //        if email.text == "belapereiras@icloud.com" && senha.text == "123"{
 //            performSegueWithIdentifier("irParaPrincipal", sender: sender)
@@ -28,6 +34,7 @@ class Login: UIViewController, UITextFieldDelegate {
 //            alerta("Usuário ou senha inválidos")
 //            
 //        }
+        }
     }
     
     override func viewDidLoad() {
