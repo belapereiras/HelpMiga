@@ -104,7 +104,7 @@ class Login: UIViewController, UITextFieldDelegate {
                 if results!.count > 0 {
                     print("email e senha combinam")
                     dispatch_async(dispatch_get_main_queue(), {
-                        //COLOCA AQUIIIIIIIIIIIIII UHUL
+                        self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
                     })
                 } else {
                     print("email e senha nao combinam")
