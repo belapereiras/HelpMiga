@@ -110,45 +110,46 @@ class UserDAO {
 //        }
     }
     
-    func verifyEmail(email: String) {
-        
-        let predicate = NSPredicate(format: "Email = %@", email)
-        let query = CKQuery(recordType: "UsersHelpMiga", predicate: predicate)
-        
-        container.performQuery(query, inZoneWithID: nil) { results, error in
-            
-            if (error != nil) {
-                print(error?.localizedDescription)
-            } else {
-                if results!.count > 0 {
-                    print("email existe")
-                } else {
-                    print("email nao cadastrado")
-                }
-            }
-        }
-    }
-    
-    func verifyLogin(email: String, senha: String) {
-        
-//        let predicate = NSPredicate(format: "Email =  %@", email, )
-        let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
-        let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
-        
-        container.performQuery(query, inZoneWithID: nil) { results, error in
-            
-            if (error != nil) {
-                print(error?.localizedDescription)
-            } else {
-                if results!.count > 0 {
-                    print("email e senha combinam")
-                } else {
-                    print("email e senha nao combinam")
-                }
-            }
-            
-        }
-    }
+//    func verifyEmail(email: String) {
+//        
+//        let predicate = NSPredicate(format: "Email = %@", email)
+//        let query = CKQuery(recordType: "UsersHelpMiga", predicate: predicate)
+//        
+//        container.performQuery(query, inZoneWithID: nil) { results, error in
+//            
+//            if (error != nil) {
+//                print(error?.localizedDescription)
+//            } else {
+//                if results!.count > 0 {
+//                    print("email existe")
+//                } else {
+//                    print("email nao cadastrado")
+//                }
+//            }
+//        }
+//    }
+//    
+//    func verifyLogin(email: String, senha: String) {
+//        
+////        let predicate = NSPredicate(format: "Email =  %@", email, )
+//        let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
+//        let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
+//        
+//        container.performQuery(query, inZoneWithID: nil) { results, error in
+//            
+//            if (error != nil) {
+//                print(error?.localizedDescription)
+//            } else {
+//                if results!.count > 0 {
+//                    print("email e senha combinam")
+//                } else {
+//                    print("email e senha nao combinam")
+//                    
+//                }
+//            }
+//            
+//        }
+//    }
     
     func save(record:CKRecord) {
         
@@ -173,6 +174,8 @@ class UserDAO {
             self.userRecordID = recordID
         }
     }
+    
+    
     
     /*func subscribeForFriendsLocations() {
         

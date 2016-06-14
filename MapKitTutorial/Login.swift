@@ -19,21 +19,12 @@ class Login: UIViewController, UITextFieldDelegate {
     @IBAction func entrar(sender: UIButton) {
         
         if email.text!.isEmpty == true || senha.text!.isEmpty == true {
-            alerta ("Todos os campos devem ser preenchidos")
+            notifyUser("Ops!", message: "Todos os campos devem ser preenchidos")
         } else {
         
-        UserDAO.sharedInstace.verifyEmail(email.text!)
-        UserDAO.sharedInstace.verifyLogin(email.text!, senha: senha.text!)
-            
-        
-//        if email.text == "belapereiras@icloud.com" && senha.text == "123"{
-//            performSegueWithIdentifier("irParaPrincipal", sender: sender)
-//            
-//        } else {
-//
-//            alerta("Usuário ou senha inválidos")
-//            
-//        }
+        verifyEmail(email.text!)
+        verifyLogin(email.text!, senha: senha.text!)
+
         }
     }
     
@@ -45,34 +36,31 @@ class Login: UIViewController, UITextFieldDelegate {
         
         
         CKContainer.defaultContainer().accountStatusWithCompletionHandler { (accountStatus, error) in
-            
             if accountStatus == CKAccountStatus.NoAccount {
-                
                 print("nao tem conta icloud")
-                
             } else {
-                
                 dispatch_async(dispatch_get_main_queue()) {
-                    
                     //tem que ter um outlet do botao entrar
 //                    self.entrar.enabled = true
-                    
                     print("tem conta icloud")
-                    
                 }
-                
             }
         }
-        
     }
     
-    func alerta(userMessage: String){
+    func notifyUser(title: String, message: String) -> Void {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertControllerStyle.Alert)
         
-        let meuAlerta = UIAlertController(title: "Alerta", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
-        let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        meuAlerta.addAction(okButton)
-        self.presentViewController(meuAlerta, animated: true, completion: nil)
+        let cancelAction = UIAlertAction(title: "OK",
+                                         style: .Cancel, handler: nil)
         
+        alert.addAction(cancelAction)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.presentViewController(alert, animated: true,
+                completion: nil)
+        })
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -82,5 +70,49 @@ class Login: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(userText: UITextField) -> Bool {
         userText.resignFirstResponder()
         return true;
+    }
+    
+    func verifyEmail(email: String) {
+        
+        let predicate = NSPredicate(format: "Email = %@", email)
+        let query = CKQuery(recordType: "UsersHelpMiga", predicate: predicate)
+        
+        UserDAO.sharedInstace.container.performQuery(query, inZoneWithID: nil) { results, error in
+            
+            if (error != nil) {
+                print(error?.localizedDescription)
+            } else {
+                if results!.count > 0 {
+                    print("email existe")
+                } else {
+                    print("email nao cadastrado")
+                }
+            }
+        }
+    }
+    
+    func verifyLogin(email: String, senha: String) {
+        
+        let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
+        let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
+        
+        UserDAO.sharedInstace.container.performQuery(query, inZoneWithID: nil) { results, error in
+            
+            if (error != nil) {
+                print(error?.localizedDescription)
+            } else {
+                if results!.count > 0 {
+                    print("email e senha combinam")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        //COLOCA AQUIIIIIIIIIIIIII UHUL
+                    })
+                } else {
+                    print("email e senha nao combinam")
+                    self.notifyUser("Ops!", message: "Usuário ou senha não combinam")
+                    
+                }
+            }
+            
+        }
     }
 }
