@@ -704,6 +704,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="entrar:" destination="xSo-3y-Prv" eventType="touchUpInside" id="2UI-Sr-yhV"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="pYn-ej-RlE"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="senhaField" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-eP-dou">
