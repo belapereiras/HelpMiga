@@ -17,6 +17,7 @@
 		1BBB397C1CAC557100840933 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB397B1CAC557100840933 /* Cadastro.swift */; };
 		1BBB397E1CAC6F2500840933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB397D1CAC6F2500840933 /* Assets.xcassets */; };
 		1BBB39801CAC755600840933 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB397F1CAC755600840933 /* Usuario.swift */; };
+		1BDF43D21D10E92A00BDA9AB /* RobotoItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF43D11D10E92900BDA9AB /* RobotoItalic.ttf */; };
 		6E14B1DA1D09F76B00040E35 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14B1D91D09F76B00040E35 /* UserDAO.swift */; };
 		6E14B1DD1D09F7B100040E35 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E14B1DC1D09F7B100040E35 /* CloudKit.framework */; };
 		6E14B1DF1D09F82A00040E35 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14B1DE1D09F82A00040E35 /* Location.swift */; };
@@ -24,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		1B14D2201CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tela_Miga_a_Caminho.swift; sourceTree = "<group>"; };
-		1B14D2221CAC1C9000FD2A31 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		1B1EB9F91CA9A436007745D7 /* Tela_Miga_em_Perigo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tela_Miga_em_Perigo.swift; sourceTree = "<group>"; };
 		1B3B253C1CB320EF00F5AA4F /* MapKitTutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MapKitTutorial.entitlements; path = MapKitTutorial/MapKitTutorial.entitlements; sourceTree = "<group>"; };
 		1B43753D1CA2E27A00EC5333 /* MapKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +42,7 @@
 		1BBB397B1CAC557100840933 /* Cadastro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
 		1BBB397D1CAC6F2500840933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BBB397F1CAC755600840933 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		1BDF43D11D10E92900BDA9AB /* RobotoItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RobotoItalic.ttf; sourceTree = "<group>"; };
 		6E14B1D91D09F76B00040E35 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		6E14B1DC1D09F7B100040E35 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6E14B1DE1D09F82A00040E35 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -96,8 +97,8 @@
 				1BBB39771CAC1ED900840933 /* Roboto-Bold.ttf */,
 				1BBB39761CAC1E2600840933 /* Roboto-BlackItalic.ttf */,
 				1B7D24681CB40BC600EE1C26 /* Roboto-Regular.ttf */,
-				1B14D2221CAC1C9000FD2A31 /* Roboto-Italic.ttf */,
 				1B826D391CA99D13004C87F9 /* Roboto-Regular.ttf */,
+				1BDF43D11D10E92900BDA9AB /* RobotoItalic.ttf */,
 			);
 			name = HelpMiga;
 			path = MapKitTutorial;
@@ -179,6 +180,7 @@
 				1B43754B1CA2E27A00EC5333 /* LaunchScreen.storyboard in Resources */,
 				1BBB397E1CAC6F2500840933 /* Assets.xcassets in Resources */,
 				1B4375461CA2E27A00EC5333 /* Main.storyboard in Resources */,
+				1BDF43D21D10E92A00BDA9AB /* RobotoItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

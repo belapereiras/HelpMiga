@@ -5,13 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Roboto-BlackItalic.ttf">
-            <string>Roboto-BlackItalic</string>
-        </mutableArray>
-        <mutableArray key="Roboto-Italic.ttf">
-            <string>Roboto-Italic</string>
-            <string>Roboto-Italic</string>
-        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -21,6 +14,11 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+        </mutableArray>
+        <mutableArray key="RobotoItalic.ttf">
+            <string>Roboto-Italic</string>
+            <string>Roboto-Italic</string>
+            <string>Roboto-Italic</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -508,7 +506,7 @@
                                     <constraint firstAttribute="width" constant="266" id="rH9-P6-3uO"/>
                                     <constraint firstAttribute="height" constant="21" id="uaF-AW-1aq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-BlackItalic" family="Roboto" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -706,7 +704,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="entrar:" destination="xSo-3y-Prv" eventType="touchUpInside" id="2UI-Sr-yhV"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="uHM-be-kkE"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="senhaField" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-eP-dou">
@@ -1414,6 +1411,6 @@
         <image name="usuárioField" width="291" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uHM-be-kkE"/>
+        <segue reference="XoT-D2-S5e"/>
     </inferredMetricsTieBreakers>
 </document>
