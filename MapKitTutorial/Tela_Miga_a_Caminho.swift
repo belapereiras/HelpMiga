@@ -53,7 +53,7 @@ class ViewController3: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         super.viewDidLoad()
         
         
-        miga.layer.cornerRadius = miga.frame.size.width/2
+        miga.layer.cornerRadius = miga.frame.size.width/1.4
         miga.clipsToBounds = true
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
