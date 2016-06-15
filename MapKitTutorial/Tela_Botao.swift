@@ -9,80 +9,63 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate{
     
 // MARK: STORYBOARD
 
     @IBOutlet weak var mapView: MKMapView!
-    let locationManager = CLLocationManager()
-    
-    
+//    let locationManager = CLLocationManager()
     @IBOutlet weak var helpButton: UIButton!
-    
-    
     @IBOutlet weak var girl: UIImageView!
-   
-
     @IBOutlet weak var helpMigaLabel: UIImageView!
-    
-    
     @IBAction func askHelp(sender: UIButton) {
         
         girl.hidden = true
         helpMigaLabel.hidden = true
-        
-        
         helpButton.alpha = 0.5
-        
-        
+    
     }
-    
-   
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Location.sharedInstace.start()
+        
 // MARK: MAP VIEW
         
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+//        self.locationManager.delegate = self
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         
-}
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
-        let location = locations.last
-        
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-        
-        self.mapView.setRegion(region, animated: true)
-        
-        self.locationManager.stopUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
-    {
-        print("Errors: " + error.localizedDescription)
-    }
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+//    {
+//        let location = locations.last
+//        
+//        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+//        
+//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
+//        
+//        self.mapView.setRegion(region, animated: true)
+//        
+//        self.locationManager.stopUpdatingLocation()
+//    }
+//    
+//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+//    {
+//        print("Errors: " + error.localizedDescription)
+//    }
    
     
 //MARK: ELEMENTOS INVISÍVEIS PARA VISÍVEIS
     
     override func viewWillAppear(animated: Bool) {
-        
         helpButton.alpha = 0.0
-        
         girl.alpha = 0.0
-        
         helpMigaLabel.alpha = 0.0
-        
-        
     }
     
     
@@ -107,13 +90,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             animations: {
                 self.helpMigaLabel.alpha = 1.0
             }, completion: nil)
-        
-        
-        
-        
-    }
-    
-    
+    }    
 }
 
 

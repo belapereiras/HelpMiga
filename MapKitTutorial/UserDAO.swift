@@ -16,7 +16,7 @@ class UserDAO {
     static let sharedInstace = UserDAO()
     
     let container = CKContainer(identifier: "iCloud.HelpMiga").publicCloudDatabase
-    let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
+//    let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
     var userName:String?
     var userRecordID:CKRecordID? {
         didSet {
@@ -26,41 +26,41 @@ class UserDAO {
     
     private init() {}
     
-//    func saveMyLocation(location:CLLocation) {
-//        
-//        let myPlaceID = CKRecordID(recordName: "myPlace" + (userRecordID?.recordName)!)
-//        
-//        //esse fetch eh p atualizar a parada da location
-//        publicDatabase.fetchRecordWithID(myPlaceID) { (fetchedRecord, error) in
-//            
-//            if error == nil {
-//                
-//                print("updating location record")
-//                
-//                fetchedRecord!["lat"] = location.coordinate.latitude
-//                fetchedRecord!["lng"] = location.coordinate.longitude
+    func saveMyLocation(location:CLLocation) {
+        
+        let myPlaceID = CKRecordID(recordName: "UsersHelpMiga" + (userRecordID?.recordName)!)
+        
+        //esse fetch eh p atualizar a parada da location
+        container.fetchRecordWithID(myPlaceID) { (fetchedRecord, error) in
+            
+            if error == nil {
+                
+                print("updating location record")
+                print("LATITUDE PRINT \(location.coordinate.latitude)")
+                
+                fetchedRecord!["Lat"] = location.coordinate.latitude
+                fetchedRecord!["Long"] = location.coordinate.longitude
 //                fetchedRecord!["owner"] = self.userName
-//                //                fetchedRecord!["location"] = location
-//                
-//                self.save(fetchedRecord!)
-//                
-//            } else {
-//                
-//                if fetchedRecord == nil {
-//                    
-//                    print("<<< creating first location record >>>")
-//                    
-//                    let myPlaceRecord = CKRecord(recordType: "Place", recordID: myPlaceID)
-//                    myPlaceRecord["lat"] = location.coordinate.latitude
-//                    myPlaceRecord["lng"] = location.coordinate.longitude
-//                    myPlaceRecord["owner"] = self.userName
-//                    //                    fetchedRecord!["location"] = location
-//                    
-//                    self.save(myPlaceRecord)
-//                }
-//            }
-//        }
-//    }
+                fetchedRecord!["Location"] = location
+                
+                self.save(fetchedRecord!)
+                
+            } else {
+                
+                if fetchedRecord == nil {
+                    
+                    print("<<< creating first location record >>>")
+                    
+                    let myPlaceRecord = CKRecord(recordType: "UsersHelpMiga", recordID: myPlaceID)
+                    myPlaceRecord["Lat"] = location.coordinate.latitude
+                    myPlaceRecord["Long"] = location.coordinate.longitude
+                    myPlaceRecord["Location"] = location
+                    
+                    self.save(myPlaceRecord)
+                }
+            }
+        }
+    }
     
     func saveUser(nome:String, email:String, senha:String) {
         
@@ -109,48 +109,7 @@ class UserDAO {
 //            }
 //        }
     }
-    
-//    func verifyEmail(email: String) {
-//        
-//        let predicate = NSPredicate(format: "Email = %@", email)
-//        let query = CKQuery(recordType: "UsersHelpMiga", predicate: predicate)
-//        
-//        container.performQuery(query, inZoneWithID: nil) { results, error in
-//            
-//            if (error != nil) {
-//                print(error?.localizedDescription)
-//            } else {
-//                if results!.count > 0 {
-//                    print("email existe")
-//                } else {
-//                    print("email nao cadastrado")
-//                }
-//            }
-//        }
-//    }
-//    
-//    func verifyLogin(email: String, senha: String) {
-//        
-////        let predicate = NSPredicate(format: "Email =  %@", email, )
-//        let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
-//        let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
-//        
-//        container.performQuery(query, inZoneWithID: nil) { results, error in
-//            
-//            if (error != nil) {
-//                print(error?.localizedDescription)
-//            } else {
-//                if results!.count > 0 {
-//                    print("email e senha combinam")
-//                } else {
-//                    print("email e senha nao combinam")
-//                    
-//                }
-//            }
-//            
-//        }
-//    }
-    
+ 
     func save(record:CKRecord) {
         
         container.saveRecord(record) { (savedRecord, error) in
@@ -164,8 +123,9 @@ class UserDAO {
     
     func getUserID() {
         
-        CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { (recordID, error) in
-            
+//        CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { (recordID, error) in
+        CKContainer(identifier: "iCloud.HelpMiga").fetchUserRecordIDWithCompletionHandler { (recordID, error) in
+        
             guard error == nil else {
                 // Handle the error here
                 print(#file, error?.localizedDescription)

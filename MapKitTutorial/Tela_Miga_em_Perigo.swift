@@ -15,29 +15,20 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
 // MARK: STORYBOARD
     
     @IBOutlet weak var fotoMigaEmPerigo: UIImageView!
-   
     @IBOutlet weak var nomeMigaEmPerigo: UILabel!
-
     @IBOutlet weak var tempoParaMigaEmPerigo: UILabel!
-    
     @IBOutlet weak var rotaParaMigaEmPerigo: MKMapView!
-    
-        let locationManager = CLLocationManager()
-    
-    
+//    let locationManager = CLLocationManager()
     @IBAction func ligarParaMigaEmPerigo(sender: UIButton) {
         
-        let numero: NSURL = NSURL(string: "tel://999645706")!
-            UIApplication.sharedApplication().openURL(numero)
+//        let numero: NSURL = NSURL(string: "tel://999645706")!
+//            UIApplication.sharedApplication().openURL(numero)
         
     }
-    
-    
+
     @IBAction func estouIndoMiga(sender: UIButton) {
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,29 +52,29 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
 // MARK: MAP VIEW
         
         
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        self.rotaParaMigaEmPerigo.showsUserLocation = true
+//        self.locationManager.delegate = self
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.startUpdatingLocation()
+//        self.rotaParaMigaEmPerigo.showsUserLocation = true
         
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-        
-        self.rotaParaMigaEmPerigo.setRegion(region, animated: true)
-        
-        self.locationManager.stopUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Errors: " + error.localizedDescription)
-    }
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let location = locations.last
+//        
+//        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+//        
+//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
+//        
+//        self.rotaParaMigaEmPerigo.setRegion(region, animated: true)
+//        
+//        self.locationManager.stopUpdatingLocation()
+//    }
+//    
+//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+//        print("Errors: " + error.localizedDescription)
+//    }
     
 }
     

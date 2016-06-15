@@ -11,7 +11,7 @@ import CoreLocation
 
 class Location: NSObject, CLLocationManagerDelegate {
     
-    //acho q ele eh p pegar as coisas dos outros arquivos
+    //ele eh p pegar as coisas dos outros arquivos
     static let sharedInstace = Location()
     
     lazy var locationManager:CLLocationManager = {
@@ -44,14 +44,14 @@ class Location: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+        print ("ATUALIZANDO AS LOCATION")
         print(locations.last)
-//        UserDAO.sharedInstace.saveMyLocation(locations.last!)
+        UserDAO.sharedInstace.saveMyLocation(locations.last!)
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
+        print ("ERRO NO LOCATION MANAGER")
         print(#file, error.localizedDescription)
     }
-    
 }

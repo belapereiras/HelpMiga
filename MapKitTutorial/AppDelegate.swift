@@ -12,7 +12,7 @@ import CoreLocation
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         application.registerForRemoteNotifications()
         
         UserDAO.sharedInstace.getUserID()
+        
 //        UserDAO.sharedInstace.subscribeForFriendsLocations()
         
         return true
