@@ -663,8 +663,33 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Zc2-yK-gah">
                                 <rect key="frame" x="155" y="444" width="290" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-km-tVp" userLabel="buttonEntrar">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-XE-Du1" userLabel="buttonCadastrar">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="1Nz-wo-tBd"/>
+                                            <constraint firstAttribute="width" constant="120" id="bP7-yd-aMh"/>
+                                            <constraint firstAttribute="height" constant="50" id="eWE-AY-KSb"/>
+                                            <constraint firstAttribute="height" constant="45" id="pI5-jV-mt4"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="botaoCadastrar"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1Nz-wo-tBd"/>
+                                                <exclude reference="eWE-AY-KSb"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="1Nz-wo-tBd"/>
+                                                <include reference="eWE-AY-KSb"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="I6D-hx-1X2" kind="presentation" id="tbJ-7G-ExQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-km-tVp" userLabel="buttonEntrar">
+                                        <rect key="frame" x="170" y="0.0" width="120" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="JLG-md-rIX"/>
                                             <constraint firstAttribute="width" constant="140" id="apR-6o-H2u"/>
@@ -687,31 +712,6 @@
                                         <connections>
                                             <action selector="entrar:" destination="xSo-3y-Prv" eventType="touchUpInside" id="2UI-Sr-yhV"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="pYn-ej-RlE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-XE-Du1" userLabel="buttonCadastrar">
-                                        <rect key="frame" x="170" y="0.0" width="120" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="1Nz-wo-tBd"/>
-                                            <constraint firstAttribute="width" constant="120" id="bP7-yd-aMh"/>
-                                            <constraint firstAttribute="height" constant="50" id="eWE-AY-KSb"/>
-                                            <constraint firstAttribute="height" constant="45" id="pI5-jV-mt4"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="botaoCadastrar"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="1Nz-wo-tBd"/>
-                                                <exclude reference="eWE-AY-KSb"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="1Nz-wo-tBd"/>
-                                                <include reference="eWE-AY-KSb"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <segue destination="I6D-hx-1X2" kind="presentation" id="tbJ-7G-ExQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
