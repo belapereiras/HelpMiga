@@ -36,7 +36,7 @@ class UserDAO {
             if error == nil {
                 
                 print("updating location record")
-                print("LATITUDE PRINT \(location.coordinate.latitude)")
+                print("LATITUDE PRINT \(location.coordinate.latitude)/n")
                 
                 fetchedRecord!["Lat"] = location.coordinate.latitude
                 fetchedRecord!["Long"] = location.coordinate.longitude
@@ -94,24 +94,26 @@ class UserDAO {
                 }
             }
         }
-
-
-//        se deixar isso aqui, tem que tirar a parada do ID
-//        userRecord["Nome"] = nome
-//        userRecord["Email"] = email
-//        userRecord["Senha"] = senha
-//        
-//        container.saveRecord(userRecord) { (record, error) in
-//            if error == nil {
-//                print ("salvou user")
-//            } else {
-//                print (error!.localizedDescription)
-//            }
-//        }
     }
+    
+    func saveAskHelp(location: CLLocation) {
+            
+//            let helpID = CKRecordID(recordName: "Help" + (userRecordID?.recordName)!)
+//            let helpRecord = CKRecord(recordType: "Help", recordID: helpID)
+            let helpRecord = CKRecord(recordType: "Help")
+            
+            helpRecord.setObject(location, forKey: "Location")
+            helpRecord.setObject(location.coordinate.latitude, forKey: "Lat")
+            helpRecord.setObject(location.coordinate.longitude, forKey: "Long")
+            
+            self.save(helpRecord)
+        print ("PEDIU HELP")
+            
+    }
+
  
     func save(record:CKRecord) {
-        
+
         container.saveRecord(record) { (savedRecord, error) in
             if error == nil {
                 print ("salvou record")
@@ -123,7 +125,6 @@ class UserDAO {
     
     func getUserID() {
         
-//        CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { (recordID, error) in
         CKContainer(identifier: "iCloud.HelpMiga").fetchUserRecordIDWithCompletionHandler { (recordID, error) in
         
             guard error == nil else {
@@ -134,6 +135,7 @@ class UserDAO {
             self.userRecordID = recordID
         }
     }
+
     
     
     

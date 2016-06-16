@@ -11,6 +11,8 @@ import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate{
     
+    
+    
 // MARK: STORYBOARD
 
     @IBOutlet weak var mapView: MKMapView!
@@ -23,6 +25,9 @@ class ViewController: UIViewController, MKMapViewDelegate{
         girl.hidden = true
         helpMigaLabel.hidden = true
         helpButton.alpha = 0.5
+        
+        UserDAO.sharedInstace.saveAskHelp(Location.sharedInstace.lastLocation)
+        
     
     }
 
@@ -37,6 +42,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
 //        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 //        self.locationManager.requestWhenInUseAuthorization()
 //        self.locationManager.startUpdatingLocation()
+        
+        //tem que dar zoom na location
         self.mapView.showsUserLocation = true
         
     }

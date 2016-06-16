@@ -23,6 +23,8 @@ class Location: NSObject, CLLocationManagerDelegate {
         return manager
     }()
     
+    var lastLocation = CLLocation()
+    
     func start() {
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -46,6 +48,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print ("ATUALIZANDO AS LOCATION")
         print(locations.last)
+        lastLocation = locations.last!
         UserDAO.sharedInstace.saveMyLocation(locations.last!)
     }
     
