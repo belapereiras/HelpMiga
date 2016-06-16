@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 import CoreLocation
 
@@ -16,24 +17,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-//    var locationManager: CLLocationManager?
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-//        locationManager = CLLocationManager()
-//        locationManager!.requestWhenInUseAuthorization()
-        
-//        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-//        application.registerUserNotificationSettings(settings)
-        
+
         application.registerForRemoteNotifications()
         
         UserDAO.sharedInstace.getUserID()
         
-//        UserDAO.sharedInstace.subscribeForFriendsLocations()
+        UserDAO.sharedInstace.subscribeForFriendsLocations()
         
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        let cloudKitNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
+        
+        if cloudKitNotification.notificationType == .Query {
+            
+            let queryNotification = cloudKitNotification as! CKQueryNotification
+            
+            if queryNotification.queryNotificationReason == .RecordDeleted {
+                // If the record has been deleted in CloudKit then delete the local copy here
+            } else  { //if queryNotification.queryNotificationReason == .RecordCreated || .RecordCreated
+                // If the record has been created or changed, we fetch the data from CloudKit
+                
+                print(queryNotification.recordFields)
+                
+//                let user = queryNotification.recordFields!["owner"] as! String
+                let latitude = queryNotification.recordFields!["lat"] as! Double
+                let longitude = queryNotification.recordFields!["Long"] as! Double
+                
+                let userInfo = ["Lat"  : latitude, "Long"  : longitude]
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("newLocation", object: nil, userInfo: userInfo as [NSObject : AnyObject])
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

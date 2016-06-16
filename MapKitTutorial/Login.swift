@@ -13,7 +13,7 @@ class Login: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
-    
+    var loginSuccess:Bool?
     
     
     @IBAction func entrar(sender: UIButton) {
@@ -25,6 +25,7 @@ class Login: UIViewController, UITextFieldDelegate {
         verifyEmail(email.text!)
         verifyLogin(email.text!, senha: senha.text!)
 
+
         }
     }
     
@@ -35,7 +36,7 @@ class Login: UIViewController, UITextFieldDelegate {
         self.senha.delegate = self
         
         
-        CKContainer.defaultContainer().accountStatusWithCompletionHandler { (accountStatus, error) in
+        CKContainer(identifier: "iCloud.HelpMiga").accountStatusWithCompletionHandler { (accountStatus, error) in
             if accountStatus == CKAccountStatus.NoAccount {
                 print("nao tem conta icloud")
             } else {
@@ -103,16 +104,35 @@ class Login: UIViewController, UITextFieldDelegate {
             } else {
                 if results!.count > 0 {
                     print("email e senha combinam")
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
-                    })
+                    self.loginSuccess = true
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
+                    
                 } else {
                     print("email e senha nao combinam")
+                    self.loginSuccess = false
                     self.notifyUser("Ops!", message: "Usuário ou senha não combinam")
                     
+                }
+                
+                if self.loginSuccess == true {
+                    self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
                 }
             }
             
         }
     }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if let ident = identifier {
+            if ident == "irParaPrincipal" {
+                if loginSuccess != true {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+   
 }

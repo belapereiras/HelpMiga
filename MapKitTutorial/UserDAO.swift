@@ -24,6 +24,8 @@ class UserDAO {
         }
     }
     
+    
+    
     private init() {}
     
     func saveMyLocation(location:CLLocation) {
@@ -61,6 +63,7 @@ class UserDAO {
             }
         }
     }
+    
     
     func saveUser(nome:String, email:String, senha:String) {
         
@@ -139,27 +142,27 @@ class UserDAO {
     
     
     
-    /*func subscribeForFriendsLocations() {
+    func subscribeForFriendsLocations() {
         
-        publicDatabase.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
+        container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
             if error == nil {
                 
                 if subscriptions!.isEmpty {
                     
                     let predicate = NSPredicate(value: true)
                     
-                    let subscription = CKSubscription(recordType: "Place", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
+                    let subscription = CKSubscription(recordType: "Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     
                     let notification = CKNotificationInfo()
-                    notification.desiredKeys = ["owner", "lat", "lng"]// "location"
+                    notification.desiredKeys = ["Location", "Lat", "Long"]// "location"
                     notification.shouldSendContentAvailable = true
                     
                     subscription.notificationInfo = notification
                     
-                    self.publicDatabase.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
+                    self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
                         guard error == nil else {
                             // Handle the error here
-                            print(#file, error?.localizedDescription)
+                            print("Erro salvando a notificação: \(#file, error?.localizedDescription)")
                             return
                         }
                         
@@ -171,8 +174,8 @@ class UserDAO {
                 
             } else {
                 // do your error handling here!
-                print(error!.localizedDescription)
+                print("Erro mandando a notificacao \(error!.localizedDescription)")
             }
         }
-    }*/
+    }
 }
