@@ -224,14 +224,40 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
-                                <rect key="frame" x="240" y="205" width="120" height="191"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ela está a 5 minutos de você." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huF-Ul-q9L">
+                                <rect key="frame" x="144" y="435.5" width="312" height="29"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="355" id="AUk-Ry-goy"/>
+                                    <constraint firstAttribute="height" constant="21" id="hWU-fP-BHp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AUk-Ry-goy"/>
+                                        <exclude reference="hWU-fP-BHp"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="AUk-Ry-goy"/>
+                                        <include reference="hWU-fP-BHp"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
+                                <rect key="frame" x="60" y="275" width="480" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="Frx-Ml-8Zr"/>
+                                    <constraint firstAttribute="width" constant="70" id="Ss1-Mc-o6k"/>
                                     <constraint firstAttribute="width" constant="360" id="eeT-sL-hRJ"/>
                                     <constraint firstAttribute="height" constant="243" id="tax-qc-4eN"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Frx-Ml-8Zr"/>
+                                        <exclude reference="Ss1-Mc-o6k"/>
                                         <exclude reference="eeT-sL-hRJ"/>
                                         <exclude reference="tax-qc-4eN"/>
                                     </mask>
@@ -300,22 +326,38 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="top" secondItem="9fx-Nq-c4e" secondAttribute="topMargin" constant="40" id="5mI-yw-c21"/>
+                            <constraint firstItem="huF-Ul-q9L" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Apu-UC-hs7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="bCQ-uk-uyx" secondAttribute="bottom" constant="75" id="BVw-ln-3eF"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="height" secondItem="9fx-Nq-c4e" secondAttribute="height" multiplier="0.2:1" id="Bxf-2f-Fjx"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="height" secondItem="9fx-Nq-c4e" secondAttribute="height" multiplier="0.28:1" id="FPd-AN-Bsh"/>
                             <constraint firstItem="bCQ-uk-uyx" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Fv9-4I-1HV"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Gdr-FE-RGb"/>
                             <constraint firstItem="A94-go-pPF" firstAttribute="height" secondItem="bCQ-uk-uyx" secondAttribute="height" id="GgZ-8f-NVm"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="JIf-h7-46w"/>
                             <constraint firstItem="Uba-28-1WN" firstAttribute="top" secondItem="641-gZ-zFX" secondAttribute="bottom" constant="5" id="N1T-vy-U7m"/>
+                            <constraint firstItem="bCQ-uk-uyx" firstAttribute="top" secondItem="2nQ-bg-Yuy" secondAttribute="bottom" constant="40" id="Rpz-af-mlo"/>
                             <constraint firstItem="A94-go-pPF" firstAttribute="width" secondItem="bCQ-uk-uyx" secondAttribute="width" id="TXI-j4-ZbC"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="top" secondItem="641-gZ-zFX" secondAttribute="bottom" constant="100" id="Ued-vT-PuZ"/>
                             <constraint firstAttribute="trailing" secondItem="XbS-od-uiG" secondAttribute="trailing" id="aqN-x5-cAe"/>
                             <constraint firstItem="A94-go-pPF" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="bhm-Jf-n4v"/>
                             <constraint firstItem="XbS-od-uiG" firstAttribute="leading" secondItem="9fx-Nq-c4e" secondAttribute="leading" id="bzZ-id-bi7"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="top" secondItem="641-gZ-zFX" secondAttribute="bottom" constant="130" id="dS4-sb-l0d"/>
                             <constraint firstAttribute="bottomMargin" secondItem="A94-go-pPF" secondAttribute="bottom" constant="20" id="fto-lz-UFv"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" multiplier="0.8:1" id="mTg-gq-vIS"/>
                             <constraint firstItem="XbS-od-uiG" firstAttribute="top" secondItem="9fx-Nq-c4e" secondAttribute="topMargin" id="o0C-F9-qjD"/>
+                            <constraint firstItem="huF-Ul-q9L" firstAttribute="top" secondItem="Uba-28-1WN" secondAttribute="bottom" constant="22" id="vyy-nA-Dua"/>
                             <constraint firstItem="Uba-28-1WN" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="wJX-O7-YKJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="XbS-od-uiG" secondAttribute="bottom" constant="130" id="xYV-F3-szJ"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="yJ9-Uh-foe"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" multiplier="0.4:1" id="z3Y-EU-1Bb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ued-vT-PuZ"/>
+                                <exclude reference="dS4-sb-l0d"/>
+                                <exclude reference="yJ9-Uh-foe"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="fotoMigaEmPerigo" destination="641-gZ-zFX" id="Ouy-WT-RCZ"/>
@@ -325,28 +367,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKg-Uq-2iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ela está a 5 minutos de você." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huF-Ul-q9L">
-                    <rect key="frame" x="0.0" y="0.0" width="312" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="355" id="AUk-Ry-goy"/>
-                        <constraint firstAttribute="height" constant="21" id="hWU-fP-BHp"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="AUk-Ry-goy"/>
-                            <exclude reference="hWU-fP-BHp"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="AUk-Ry-goy"/>
-                            <include reference="hWU-fP-BHp"/>
-                        </mask>
-                    </variation>
-                </label>
             </objects>
             <point key="canvasLocation" x="1894.5" y="348"/>
         </scene>
@@ -389,8 +409,8 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="rQG-pF-tmZ">
-                                <rect key="frame" x="253" y="600" width="238" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="rQG-pF-tmZ">
+                                <rect key="frame" x="181" y="97" width="238" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="War-ny-gou">
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="42"/>
@@ -440,11 +460,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-zm-bgq">
-                                <rect key="frame" x="15" y="-141" width="570" height="734"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-zm-bgq">
+                                <rect key="frame" x="100" y="-141" width="400" height="734"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="570" placeholderIntrinsicHeight="635" image="pri" translatesAutoresizingMaskIntoConstraints="NO" id="gut-cl-0fY">
-                                        <rect key="frame" x="0.0" y="0.0" width="570" height="635"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="635"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="pTr-vX-RaV"/>
                                             <constraint firstAttribute="width" constant="120" id="t1F-f9-mDk"/>
@@ -462,9 +482,10 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
-                                        <rect key="frame" x="218" y="640" width="134" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
+                                        <rect key="frame" x="50" y="640" width="300" height="27"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Zkj-1t-hnF"/>
                                             <constraint firstAttribute="height" constant="28" id="c1n-4t-o63"/>
                                             <constraint firstAttribute="width" constant="266" id="odj-nA-KXB"/>
                                         </constraints>
@@ -485,8 +506,9 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
-                                        <rect key="frame" x="244" y="672" width="84" height="30"/>
+                                        <rect key="frame" x="50" y="672" width="300" height="30"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="dLK-cz-d8e"/>
                                             <constraint firstAttribute="width" constant="266" id="rH9-P6-3uO"/>
                                             <constraint firstAttribute="height" constant="21" id="uaF-AW-1aq"/>
                                         </constraints>
@@ -506,11 +528,12 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
-                                        <rect key="frame" x="229" y="707" width="113" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
+                                        <rect key="frame" x="50" y="707" width="300" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="266" id="5FQ-X4-vso"/>
                                             <constraint firstAttribute="height" constant="28" id="6k4-T9-PO5"/>
+                                            <constraint firstAttribute="width" constant="300" id="Owp-vQ-Prq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -529,6 +552,9 @@
                                         </variation>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="ote-Pe-sZl"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -821,7 +847,6 @@
                     <connections>
                         <outlet property="email" destination="03Y-B9-hPS" id="fXu-iF-34p"/>
                         <outlet property="senha" destination="Yj5-nV-ltx" id="VZ9-6S-4wo"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="irParaPrincipal" id="XoT-D2-S5e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCZ-VX-mmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1133,6 +1158,6 @@
         <image name="usuárioField" width="291" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XoT-D2-S5e"/>
+        <segue reference="pYn-ej-RlE"/>
     </inferredMetricsTieBreakers>
 </document>
