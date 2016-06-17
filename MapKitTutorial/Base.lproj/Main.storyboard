@@ -175,8 +175,57 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
-                                <rect key="frame" x="29.5" y="232" width="540" height="192"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uba-28-1WN">
+                                <rect key="frame" x="224" y="165" width="153" height="69"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isabela" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKT-5Q-qik">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="360" id="TrZ-Xw-y5c"/>
+                                            <constraint firstAttribute="height" constant="40" id="oep-WC-Z6i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="38"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="TrZ-Xw-y5c"/>
+                                                <exclude reference="oep-WC-Z6i"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="TrZ-Xw-y5c"/>
+                                                <include reference="oep-WC-Z6i"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="precisa de ajuda!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmY-wo-Y1e">
+                                        <rect key="frame" x="0.0" y="45" width="153" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Gk3-Tj-cXx"/>
+                                            <constraint firstAttribute="width" constant="360" id="wkE-1Y-Iem"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Gk3-Tj-cXx"/>
+                                                <exclude reference="wkE-1Y-Iem"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Gk3-Tj-cXx"/>
+                                                <include reference="wkE-1Y-Iem"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
+                                <rect key="frame" x="240" y="205" width="120" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="eeT-sL-hRJ"/>
                                     <constraint firstAttribute="height" constant="243" id="tax-qc-4eN"/>
@@ -256,27 +305,17 @@
                             <constraint firstItem="bCQ-uk-uyx" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Fv9-4I-1HV"/>
                             <constraint firstItem="A94-go-pPF" firstAttribute="height" secondItem="bCQ-uk-uyx" secondAttribute="height" id="GgZ-8f-NVm"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="JIf-h7-46w"/>
-                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="top" secondItem="641-gZ-zFX" secondAttribute="bottom" multiplier="0.95:1" constant="80" id="KNA-py-jNw"/>
-                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" multiplier="0.9:1" id="NSv-Vn-NuE"/>
-                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="height" secondItem="9fx-Nq-c4e" secondAttribute="height" multiplier="0.32:1" id="Olr-AF-SIW"/>
-                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="centerY" secondItem="9fx-Nq-c4e" secondAttribute="centerY" id="S2p-lA-3vM"/>
+                            <constraint firstItem="Uba-28-1WN" firstAttribute="top" secondItem="641-gZ-zFX" secondAttribute="bottom" constant="5" id="N1T-vy-U7m"/>
                             <constraint firstItem="A94-go-pPF" firstAttribute="width" secondItem="bCQ-uk-uyx" secondAttribute="width" id="TXI-j4-ZbC"/>
-                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="ZE2-6F-Yxb"/>
                             <constraint firstAttribute="trailing" secondItem="XbS-od-uiG" secondAttribute="trailing" id="aqN-x5-cAe"/>
                             <constraint firstItem="A94-go-pPF" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="bhm-Jf-n4v"/>
                             <constraint firstItem="XbS-od-uiG" firstAttribute="leading" secondItem="9fx-Nq-c4e" secondAttribute="leading" id="bzZ-id-bi7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="A94-go-pPF" secondAttribute="bottom" constant="20" id="fto-lz-UFv"/>
-                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="top" secondItem="9fx-Nq-c4e" secondAttribute="topMargin" constant="250" id="kT1-Zh-JsL"/>
                             <constraint firstItem="XbS-od-uiG" firstAttribute="top" secondItem="9fx-Nq-c4e" secondAttribute="topMargin" id="o0C-F9-qjD"/>
+                            <constraint firstItem="Uba-28-1WN" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="wJX-O7-YKJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="XbS-od-uiG" secondAttribute="bottom" constant="130" id="xYV-F3-szJ"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" multiplier="0.4:1" id="z3Y-EU-1Bb"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="S2p-lA-3vM"/>
-                                <exclude reference="kT1-Zh-JsL"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="fotoMigaEmPerigo" destination="641-gZ-zFX" id="Ouy-WT-RCZ"/>
@@ -286,52 +325,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKg-Uq-2iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="precisa de ajuda!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmY-wo-Y1e">
-                    <rect key="frame" x="0.0" y="0.0" width="280" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="Gk3-Tj-cXx"/>
-                        <constraint firstAttribute="width" constant="360" id="wkE-1Y-Iem"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Gk3-Tj-cXx"/>
-                            <exclude reference="wkE-1Y-Iem"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="Gk3-Tj-cXx"/>
-                            <include reference="wkE-1Y-Iem"/>
-                        </mask>
-                    </variation>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isabela" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKT-5Q-qik">
-                    <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="360" id="TrZ-Xw-y5c"/>
-                        <constraint firstAttribute="height" constant="40" id="oep-WC-Z6i"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="38"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="TrZ-Xw-y5c"/>
-                            <exclude reference="oep-WC-Z6i"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="TrZ-Xw-y5c"/>
-                            <include reference="oep-WC-Z6i"/>
-                        </mask>
-                    </variation>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ela está a 5 minutos de você." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huF-Ul-q9L">
-                    <rect key="frame" x="0.0" y="0.0" width="280" height="21"/>
+                    <rect key="frame" x="0.0" y="0.0" width="312" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="355" id="AUk-Ry-goy"/>
                         <constraint firstAttribute="height" constant="21" id="hWU-fP-BHp"/>
@@ -373,27 +368,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="570" placeholderIntrinsicHeight="781" axis="vertical" alignment="center" spacing="-60" translatesAutoresizingMaskIntoConstraints="NO" id="7J8-hV-mSM">
                                 <rect key="frame" x="15" y="-91" width="570" height="781"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pri" translatesAutoresizingMaskIntoConstraints="NO" id="gut-cl-0fY">
-                                        <rect key="frame" x="0.0" y="0.0" width="570" height="635"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="pTr-vX-RaV"/>
-                                            <constraint firstAttribute="width" constant="120" id="t1F-f9-mDk"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="pTr-vX-RaV"/>
-                                                <exclude reference="t1F-f9-mDk"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="pTr-vX-RaV"/>
-                                                <include reference="t1F-f9-mDk"/>
-                                            </mask>
-                                        </variation>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="migaNotification" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-WK-xxX" customClass="mig">
-                                        <rect key="frame" x="160" y="575" width="250" height="206"/>
+                                        <rect key="frame" x="160" y="0.0" width="250" height="781"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="PQT-QN-7w7"/>
                                             <constraint firstAttribute="height" constant="261" id="dbp-JP-QRj"/>
@@ -412,14 +388,6 @@
                                         </variation>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="gut-cl-0fY" firstAttribute="top" secondItem="ZMd-WK-xxX" secondAttribute="bottom" constant="-100" id="V9x-CS-jd3"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="V9x-CS-jd3"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="rQG-pF-tmZ">
                                 <rect key="frame" x="253" y="600" width="238" height="42"/>
@@ -472,16 +440,108 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-zm-bgq">
+                                <rect key="frame" x="15" y="-141" width="570" height="734"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="570" placeholderIntrinsicHeight="635" image="pri" translatesAutoresizingMaskIntoConstraints="NO" id="gut-cl-0fY">
+                                        <rect key="frame" x="0.0" y="0.0" width="570" height="635"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="pTr-vX-RaV"/>
+                                            <constraint firstAttribute="width" constant="120" id="t1F-f9-mDk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="pTr-vX-RaV"/>
+                                                <exclude reference="t1F-f9-mDk"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="pTr-vX-RaV"/>
+                                                <include reference="t1F-f9-mDk"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
+                                        <rect key="frame" x="218" y="640" width="134" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="c1n-4t-o63"/>
+                                            <constraint firstAttribute="width" constant="266" id="odj-nA-KXB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="c1n-4t-o63"/>
+                                                <exclude reference="odj-nA-KXB"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="c1n-4t-o63"/>
+                                                <include reference="odj-nA-KXB"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
+                                        <rect key="frame" x="244" y="672" width="84" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="266" id="rH9-P6-3uO"/>
+                                            <constraint firstAttribute="height" constant="21" id="uaF-AW-1aq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="rH9-P6-3uO"/>
+                                                <exclude reference="uaF-AW-1aq"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="rH9-P6-3uO"/>
+                                                <include reference="uaF-AW-1aq"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
+                                        <rect key="frame" x="229" y="707" width="113" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="266" id="5FQ-X4-vso"/>
+                                            <constraint firstAttribute="height" constant="28" id="6k4-T9-PO5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5FQ-X4-vso"/>
+                                                <exclude reference="6k4-T9-PO5"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="5FQ-X4-vso"/>
+                                                <include reference="6k4-T9-PO5"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7J8-hV-mSM" firstAttribute="centerY" secondItem="fEr-RE-XbV" secondAttribute="centerY" id="45o-x7-YwF"/>
+                            <constraint firstItem="qKU-zm-bgq" firstAttribute="centerX" secondItem="fEr-RE-XbV" secondAttribute="centerX" id="IYN-x7-LNS"/>
                             <constraint firstItem="m3Z-CK-hA9" firstAttribute="leading" secondItem="fEr-RE-XbV" secondAttribute="leading" id="Mt1-4r-wgb"/>
                             <constraint firstItem="rQG-pF-tmZ" firstAttribute="centerX" secondItem="fEr-RE-XbV" secondAttribute="centerX" id="OHA-jw-mYj"/>
                             <constraint firstItem="7J8-hV-mSM" firstAttribute="centerX" secondItem="fEr-RE-XbV" secondAttribute="centerX" id="Pod-xv-dJJ"/>
                             <constraint firstItem="rQG-pF-tmZ" firstAttribute="top" secondItem="fEr-RE-XbV" secondAttribute="topMargin" constant="400" id="RBV-Jn-YTc"/>
                             <constraint firstItem="ZMd-WK-xxX" firstAttribute="top" secondItem="rQG-pF-tmZ" secondAttribute="bottom" constant="-230" id="WxG-lf-Mto"/>
                             <constraint firstItem="m3Z-CK-hA9" firstAttribute="top" secondItem="fEr-RE-XbV" secondAttribute="topMargin" id="cTb-Yx-lBg"/>
+                            <constraint firstItem="qKU-zm-bgq" firstAttribute="top" secondItem="rQG-pF-tmZ" secondAttribute="bottom" constant="-280" id="dRE-oL-8Wu"/>
                             <constraint firstAttribute="bottomMargin" secondItem="m3Z-CK-hA9" secondAttribute="bottom" id="sDn-aH-gJL"/>
                             <constraint firstAttribute="trailing" secondItem="m3Z-CK-hA9" secondAttribute="trailing" id="tmJ-j3-JPv"/>
                         </constraints>
@@ -503,72 +563,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiN-yA-uvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
-                    <rect key="frame" x="0.0" y="0.0" width="216" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="266" id="5FQ-X4-vso"/>
-                        <constraint firstAttribute="height" constant="28" id="6k4-T9-PO5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="23"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="5FQ-X4-vso"/>
-                            <exclude reference="6k4-T9-PO5"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="5FQ-X4-vso"/>
-                            <include reference="6k4-T9-PO5"/>
-                        </mask>
-                    </variation>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
-                    <rect key="frame" x="0.0" y="0.0" width="208" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="266" id="rH9-P6-3uO"/>
-                        <constraint firstAttribute="height" constant="21" id="uaF-AW-1aq"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="25"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="rH9-P6-3uO"/>
-                            <exclude reference="uaF-AW-1aq"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="rH9-P6-3uO"/>
-                            <include reference="uaF-AW-1aq"/>
-                        </mask>
-                    </variation>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
-                    <rect key="frame" x="0.0" y="0.0" width="216" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="c1n-4t-o63"/>
-                        <constraint firstAttribute="width" constant="266" id="odj-nA-KXB"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="23"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="c1n-4t-o63"/>
-                            <exclude reference="odj-nA-KXB"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="c1n-4t-o63"/>
-                            <include reference="odj-nA-KXB"/>
-                        </mask>
-                    </variation>
-                </label>
             </objects>
             <point key="canvasLocation" x="2536.5" y="348"/>
         </scene>
@@ -654,8 +648,8 @@
                                     <rect key="frame" x="36" y="420" width="350" height="44"/>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yj5-nV-ltx">
-                                <rect key="frame" x="164" y="371.5" width="270" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yj5-nV-ltx">
+                                <rect key="frame" x="164" y="371" width="270" height="22"/>
                                 <color key="textColor" red="0.9137254901960784" green="0.11764705882352941" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -663,7 +657,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Zc2-yK-gah">
                                 <rect key="frame" x="155" y="444" width="290" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-XE-Du1" userLabel="buttonCadastrar">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-XE-Du1" userLabel="buttonCadastrar">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="1Nz-wo-tBd"/>
@@ -688,7 +682,7 @@
                                             <segue destination="I6D-hx-1X2" kind="presentation" id="tbJ-7G-ExQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-km-tVp" userLabel="buttonEntrar">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-km-tVp" userLabel="buttonEntrar">
                                         <rect key="frame" x="170" y="0.0" width="120" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="JLG-md-rIX"/>
@@ -716,8 +710,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03Y-B9-hPS">
-                                <rect key="frame" x="165" y="307.5" width="270" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03Y-B9-hPS">
+                                <rect key="frame" x="165" y="307" width="270" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bpu-y1-mz7"/>
                                     <constraint firstAttribute="width" constant="265" id="g4g-6y-dXr"/>
