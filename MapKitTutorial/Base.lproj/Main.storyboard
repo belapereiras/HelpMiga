@@ -41,22 +41,6 @@
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Girl" translatesAutoresizingMaskIntoConstraints="NO" id="OMU-6o-w7k">
                                 <rect key="frame" x="-32" y="50" width="300" height="228"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="263" id="8Pj-RP-kE3"/>
-                                    <constraint firstAttribute="width" constant="170" id="aGc-gO-9lr"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="8Pj-RP-kE3"/>
-                                        <exclude reference="aGc-gO-9lr"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="8Pj-RP-kE3"/>
-                                        <include reference="aGc-gO-9lr"/>
-                                    </mask>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heX-jN-JX2" userLabel="buttonHelp">
                                 <rect key="frame" x="150" y="230" width="300" height="168"/>
@@ -104,14 +88,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cfU-qP-Ufj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Ue-Ex-YFl"/>
-                            <constraint firstItem="heX-jN-JX2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Xi-d8-wKz"/>
                             <constraint firstItem="heX-jN-JX2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5:1" id="9iI-0h-0om"/>
                             <constraint firstItem="OMU-6o-w7k" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.38:1" id="CHC-P4-Mzo"/>
                             <constraint firstItem="cfU-qP-Ufj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45:1" id="D6h-CD-MrF"/>
                             <constraint firstItem="OMU-6o-w7k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-32" id="I0A-un-lSG"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cfU-qP-Ufj" secondAttribute="bottom" constant="10" id="J0y-k6-4vP"/>
                             <constraint firstItem="cfU-qP-Ufj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3:1" id="JaE-yc-qzO"/>
-                            <constraint firstItem="heX-jN-JX2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rzs-hi-RNa"/>
                             <constraint firstItem="Dec-WC-OOh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="S4E-O4-gmZ"/>
                             <constraint firstAttribute="trailing" secondItem="Dec-WC-OOh" secondAttribute="trailing" id="bGI-hq-Hua"/>
                             <constraint firstItem="OMU-6o-w7k" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5:1" id="bfI-Jc-Kou"/>
@@ -122,12 +104,6 @@
                             <constraint firstItem="heX-jN-JX2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y1N-mY-D10"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Dec-WC-OOh" secondAttribute="bottom" id="zno-0i-uF1"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7Xi-d8-wKz"/>
-                                <exclude reference="Rzs-hi-RNa"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="girl" destination="OMU-6o-w7k" id="dIY-ET-LQQ"/>
@@ -175,7 +151,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uba-28-1WN">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uba-28-1WN">
                                 <rect key="frame" x="224" y="165" width="153" height="69"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isabela" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKT-5Q-qik">
@@ -224,8 +200,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ela está a 5 minutos de você." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huF-Ul-q9L">
-                                <rect key="frame" x="144" y="435" width="312" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ela está a 5 minutos de você." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huF-Ul-q9L">
+                                <rect key="frame" x="144" y="435.5" width="312" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="355" id="AUk-Ry-goy"/>
                                     <constraint firstAttribute="height" constant="21" id="hWU-fP-BHp"/>
@@ -246,7 +222,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-bg-Yuy">
                                 <rect key="frame" x="60" y="275" width="480" height="168"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCQ-uk-uyx" userLabel="buttonLigarMiga">
@@ -309,6 +285,7 @@
                             <constraint firstItem="huF-Ul-q9L" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Apu-UC-hs7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="bCQ-uk-uyx" secondAttribute="bottom" constant="75" id="BVw-ln-3eF"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="height" secondItem="9fx-Nq-c4e" secondAttribute="height" multiplier="0.2:1" id="Bxf-2f-Fjx"/>
+                            <constraint firstItem="2nQ-bg-Yuy" firstAttribute="top" secondItem="Uba-28-1WN" secondAttribute="bottom" constant="70" id="DUw-yS-esd"/>
                             <constraint firstItem="2nQ-bg-Yuy" firstAttribute="height" secondItem="9fx-Nq-c4e" secondAttribute="height" multiplier="0.28:1" id="FPd-AN-Bsh"/>
                             <constraint firstItem="bCQ-uk-uyx" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Fv9-4I-1HV"/>
                             <constraint firstItem="2nQ-bg-Yuy" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="Gdr-FE-RGb"/>
@@ -328,6 +305,11 @@
                             <constraint firstAttribute="bottomMargin" secondItem="XbS-od-uiG" secondAttribute="bottom" constant="130" id="xYV-F3-szJ"/>
                             <constraint firstItem="641-gZ-zFX" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" multiplier="0.4:1" id="z3Y-EU-1Bb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Rpz-af-mlo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="fotoMigaEmPerigo" destination="641-gZ-zFX" id="Ouy-WT-RCZ"/>
@@ -456,44 +438,19 @@
                                         <rect key="frame" x="50" y="640" width="300" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Zkj-1t-hnF"/>
-                                            <constraint firstAttribute="height" constant="28" id="c1n-4t-o63"/>
-                                            <constraint firstAttribute="width" constant="266" id="odj-nA-KXB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="c1n-4t-o63"/>
-                                                <exclude reference="odj-nA-KXB"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="c1n-4t-o63"/>
-                                                <include reference="odj-nA-KXB"/>
-                                            </mask>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
                                         <rect key="frame" x="50" y="672" width="300" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="dLK-cz-d8e"/>
-                                            <constraint firstAttribute="height" constant="21" id="uaF-AW-1aq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="uaF-AW-1aq"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="uaF-AW-1aq"/>
-                                            </mask>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
                                         <rect key="frame" x="50" y="707" width="300" height="27"/>
@@ -517,18 +474,12 @@
                             <constraint firstItem="m3Z-CK-hA9" firstAttribute="leading" secondItem="fEr-RE-XbV" secondAttribute="leading" id="Mt1-4r-wgb"/>
                             <constraint firstItem="rQG-pF-tmZ" firstAttribute="centerX" secondItem="fEr-RE-XbV" secondAttribute="centerX" id="OHA-jw-mYj"/>
                             <constraint firstItem="7J8-hV-mSM" firstAttribute="centerX" secondItem="fEr-RE-XbV" secondAttribute="centerX" id="Pod-xv-dJJ"/>
-                            <constraint firstItem="rQG-pF-tmZ" firstAttribute="top" secondItem="fEr-RE-XbV" secondAttribute="topMargin" constant="400" id="RBV-Jn-YTc"/>
                             <constraint firstItem="ZMd-WK-xxX" firstAttribute="top" secondItem="rQG-pF-tmZ" secondAttribute="bottom" constant="-230" id="WxG-lf-Mto"/>
                             <constraint firstItem="m3Z-CK-hA9" firstAttribute="top" secondItem="fEr-RE-XbV" secondAttribute="topMargin" id="cTb-Yx-lBg"/>
                             <constraint firstItem="qKU-zm-bgq" firstAttribute="top" secondItem="rQG-pF-tmZ" secondAttribute="bottom" constant="-280" id="dRE-oL-8Wu"/>
                             <constraint firstAttribute="bottomMargin" secondItem="m3Z-CK-hA9" secondAttribute="bottom" id="sDn-aH-gJL"/>
                             <constraint firstAttribute="trailing" secondItem="m3Z-CK-hA9" secondAttribute="trailing" id="tmJ-j3-JPv"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="RBV-Jn-YTc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="botaoLigar" destination="War-ny-gou" id="QQp-sw-bX9"/>
@@ -820,9 +771,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="83b-PI-bNF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
-                                </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nomeCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="X5j-4S-onQ">
                                 <rect key="frame" x="16" y="100" width="568" height="42"/>
@@ -835,54 +783,33 @@
                                 <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="62" y="120" width="275" height="30"/>
-                                </variation>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="fYn-1y-xAW">
                                 <rect key="frame" x="16" y="162" width="568" height="42"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="25" y="170" width="350" height="50"/>
-                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-yx-JhG">
                                 <rect key="frame" x="16" y="162" width="568" height="42"/>
                                 <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="62" y="180" width="275" height="30"/>
-                                </variation>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="senhaCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="djO-j1-LQU">
                                 <rect key="frame" x="16" y="224" width="568" height="42"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="25" y="240" width="350" height="50"/>
-                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrt-J5-qWr">
                                 <rect key="frame" x="16" y="224" width="568" height="42"/>
                                 <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="62" y="250" width="275" height="30"/>
-                                </variation>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repetirSenhaCadastro" translatesAutoresizingMaskIntoConstraints="NO" id="Vv3-O0-qlZ">
                                 <rect key="frame" x="16" y="286" width="568" height="42"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="25" y="310" width="350" height="50"/>
-                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repetir senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaJ-97-bYT">
                                 <rect key="frame" x="16" y="286" width="568" height="42"/>
                                 <color key="textColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="62" y="320" width="275" height="30"/>
-                                </variation>
                             </textField>
                             <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="nPL-f8-eQF">
                                 <rect key="frame" x="158" y="358" width="284" height="60"/>
@@ -928,9 +855,6 @@
                                     <constraint firstAttribute="width" constant="51" id="aiy-4D-5aZ"/>
                                     <constraint firstAttribute="height" constant="60" id="rwk-Ah-3Lx"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="229" y="420" width="60" height="86"/>
-                                </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Ry-22-Hrc">
                                 <rect key="frame" x="395" y="358" width="51" height="60"/>
@@ -938,9 +862,6 @@
                                     <constraint firstAttribute="width" constant="51" id="6zn-Ca-8R3"/>
                                     <constraint firstAttribute="height" constant="60" id="cky-if-wgA"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="315" y="420" width="60" height="86"/>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24M-uk-2U9" userLabel="buttonEnviarAprovacao">
                                 <rect key="frame" x="177" y="468" width="245" height="48"/>
@@ -949,9 +870,6 @@
                                     <constraint firstAttribute="height" constant="48" id="cXq-61-Lds"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="botaoAprovar"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="66" y="526" width="267" height="50"/>
-                                </variation>
                                 <connections>
                                     <action selector="enviarParaAprovacao:" destination="I6D-hx-1X2" eventType="touchUpInside" id="3Mv-Ca-CJo"/>
                                 </connections>
@@ -963,9 +881,6 @@
                                     <constraint firstAttribute="height" constant="40" id="py6-h2-z2J"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="backButton"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="20" width="28" height="40"/>
-                                </variation>
                                 <connections>
                                     <segue destination="xSo-3y-Prv" kind="presentation" id="FgQ-ua-uOn"/>
                                 </connections>
@@ -1111,6 +1026,6 @@
         <image name="usuárioField" width="291" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QSc-Yt-ILM"/>
+        <segue reference="pYn-ej-RlE"/>
     </inferredMetricsTieBreakers>
 </document>
