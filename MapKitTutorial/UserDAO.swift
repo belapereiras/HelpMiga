@@ -146,7 +146,7 @@ class UserDAO {
         
         container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
             if error == nil {
-                
+                print (">>>>>>>>>>>>>>>>>\(subscriptions?.description)<<<<<<<<<<<<<")
                 if subscriptions!.isEmpty {
                     
                     let predicate = NSPredicate(value: true)
@@ -154,7 +154,7 @@ class UserDAO {
                     let subscription = CKSubscription(recordType: "Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     
                     let notification = CKNotificationInfo()
-                    notification.desiredKeys = ["Location", "Lat", "Long"]// "location"
+                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
                     notification.shouldSendContentAvailable = true
                     
                     subscription.notificationInfo = notification

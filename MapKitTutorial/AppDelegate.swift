@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(queryNotification.recordFields)
                 
 //                let user = queryNotification.recordFields!["owner"] as! String
-                let latitude = queryNotification.recordFields!["lat"] as! Double
+                let latitude = queryNotification.recordFields!["Lat"] as! Double
                 let longitude = queryNotification.recordFields!["Long"] as! Double
                 
                 let userInfo = ["Lat"  : latitude, "Long"  : longitude]

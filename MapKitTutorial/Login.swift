@@ -116,23 +116,25 @@ class Login: UIViewController, UITextFieldDelegate {
                 }
                 
                 if self.loginSuccess == true {
-                    self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
+//                    self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
+                    let vc = ViewController()
+                    self.presentViewController(vc, animated: true, completion: nil)
                 }
             }
             
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        if let ident = identifier {
-            if ident == "irParaPrincipal" {
-                if loginSuccess != true {
-                    return false
-                }
-            }
-        }
-        return true
-    }
+//    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+//        if let ident = identifier {
+//            if ident == "irParaPrincipal" {
+//                if loginSuccess != true {
+//                    return false
+//                }
+//            }
+//        }
+//        return true
+//    }
     
    
 }
