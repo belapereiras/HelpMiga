@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate{
     
@@ -16,7 +17,6 @@ class ViewController: UIViewController, MKMapViewDelegate{
 // MARK: STORYBOARD
 
     @IBOutlet weak var mapView: MKMapView!
-//    let locationManager = CLLocationManager()
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var girl: UIImageView!
     @IBOutlet weak var helpMigaLabel: UIImageView!
@@ -27,45 +27,46 @@ class ViewController: UIViewController, MKMapViewDelegate{
         helpButton.alpha = 0.5
         
         UserDAO.sharedInstace.saveAskHelp(Location.sharedInstace.lastLocation)
-        
+        addObservers()
+
+    }
     
+    func addObservers() {
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newLocation", object: nil)
+    }
+    
+    func updateLocation(notification:NSNotification) {
+        
+        let lat = notification.userInfo!["lat"] as! Double
+        let lng = notification.userInfo!["lng"] as! Double
+        
+        print("LATITUDE: \(lat) LONGITUDE: \(lng)")
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        checkLocationAuthorizationStatus()
         
         Location.sharedInstace.start()
-        
-// MARK: MAP VIEW
-        
-//        self.locationManager.delegate = self
-//        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//        self.locationManager.requestWhenInUseAuthorization()
-//        self.locationManager.startUpdatingLocation()
-        
-        //tem que dar zoom na location
-        self.mapView.showsUserLocation = true
-        
+
+        //tem que dar zoom no mapview
+ 
+    }
+
+   
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            mapView.showsUserLocation = true
+            Location.sharedInstace.locationManager.startUpdatingLocation()
+        } else {
+            Location.sharedInstace.locationManager.requestWhenInUseAuthorization()
+        }
     }
     
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-//    {
-//        let location = locations.last
-//        
-//        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-//        
-//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-//        
-//        self.mapView.setRegion(region, animated: true)
-//        
-//        self.locationManager.stopUpdatingLocation()
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
-//    {
-//        print("Errors: " + error.localizedDescription)
-//    }
-   
+
     
 //MARK: ELEMENTOS INVISÍVEIS PARA VISÍVEIS
     

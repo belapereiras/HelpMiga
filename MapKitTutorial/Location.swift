@@ -16,6 +16,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     lazy var locationManager:CLLocationManager = {
         let manager = CLLocationManager()
+//        manager.desiredAccuracy = kCLLocationAccuracyKilometer
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 50
         manager.delegate = self

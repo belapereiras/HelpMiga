@@ -20,12 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        
 
         application.registerForRemoteNotifications()
         
         UserDAO.sharedInstace.getUserID()
-        
         UserDAO.sharedInstace.subscribeForFriendsLocations()
+        
+//        if let options: NSDictionary = launchOptions {
+//            let remoteNotification = options.objectForKey(UIApplicationLaunchOptionsRemoteNotificationKey) as? NSDictionary
+//            
+//            if let notification = remoteNotification {
+//                self.application(application, didReceiveRemoteNotification: notification as [NSObject:AnyObject])
+//            }
+//        }
         
         return true
     }
@@ -37,21 +48,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if cloudKitNotification.notificationType == .Query {
             
             let queryNotification = cloudKitNotification as! CKQueryNotification
+//            let recordID = queryNotification.recordID
             
             if queryNotification.queryNotificationReason == .RecordDeleted {
                 // If the record has been deleted in CloudKit then delete the local copy here
             } else  { //if queryNotification.queryNotificationReason == .RecordCreated || .RecordCreated
                 // If the record has been created or changed, we fetch the data from CloudKit
                 
-                print(queryNotification.recordFields)
+                print("QUERY:\(queryNotification.recordFields)")
                 
 //                let user = queryNotification.recordFields!["owner"] as! String
                 let latitude = queryNotification.recordFields!["Lat"] as! Double
                 let longitude = queryNotification.recordFields!["Long"] as! Double
                 
-                let userInfo = ["Lat"  : latitude, "Long"  : longitude]
+                
+                let userInfo = ["Lat":latitude, "Long":longitude]
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("newLocation", object: nil, userInfo: userInfo as [NSObject : AnyObject])
+//                UserDAO.sharedInstace.fetchAndDisplayNewRecord(recordID!)
             }
         }
     }

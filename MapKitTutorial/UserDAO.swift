@@ -38,7 +38,7 @@ class UserDAO {
             if error == nil {
                 
                 print("updating location record")
-                print("LATITUDE PRINT \(location.coordinate.latitude)/n")
+//                print("LATITUDE PRINT \(location.coordinate.latitude)/n")
                 
                 fetchedRecord!["Lat"] = location.coordinate.latitude
                 fetchedRecord!["Long"] = location.coordinate.longitude
@@ -140,22 +140,21 @@ class UserDAO {
     }
 
     
-    
-    
     func subscribeForFriendsLocations() {
         
         container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
             if error == nil {
-                print (">>>>>>>>>>>>>>>>>\(subscriptions?.description)<<<<<<<<<<<<<")
                 if subscriptions!.isEmpty {
                     
                     let predicate = NSPredicate(value: true)
                     
-                    let subscription = CKSubscription(recordType: "Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
+                    let subscription = CKSubscription(recordType:"Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     
                     let notification = CKNotificationInfo()
-                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
-                    notification.shouldSendContentAvailable = true
+//                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
+//                    notification.shouldSendContentAvailable = true
+                    notification.shouldBadge = true
+                    notification.alertBody = "Help"
                     
                     subscription.notificationInfo = notification
                     
@@ -178,4 +177,16 @@ class UserDAO {
             }
         }
     }
+    
+//    func fetchAndDisplayNewRecord(recordID: CKRecordID) {
+//        container.fetchRecordWithID(recordID) {newRecord, error in
+//            if error != nil {
+//                print("Fetch new record error: \(error!.localizedDescription)")
+//            } else {
+//                let lat = newRecord!.objectForKey("Lat") as! String
+//                let long = newRecord!.objectForKey("Long") as! String
+//                print ("Lat is: \(lat), Long is \(long)")
+//            }
+//        }
+//    }
 }
