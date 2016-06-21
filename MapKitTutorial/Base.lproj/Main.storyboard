@@ -63,6 +63,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="askHelp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I7a-Xd-Ioc"/>
+                                    <segue destination="Lr5-T7-BvZ" kind="show" id="AbW-Z6-yxc"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HelpMigaLabel" translatesAutoresizingMaskIntoConstraints="NO" id="cfU-qP-Ufj" userLabel="HelpMiga">
@@ -275,7 +276,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="estouIndoMiga:" destination="Lr5-T7-BvZ" eventType="touchUpInside" id="pxq-9f-aYA"/>
-                                    <segue destination="Ss9-3M-vfs" kind="presentation" identifier="migaEmPerigoParaAlerta" id="1gR-VP-Nf8"/>
+                                    <segue destination="Ss9-3M-vfs" kind="show" id="pEI-gk-7s1"/>
                                 </connections>
                             </button>
                         </subviews>
