@@ -35,7 +35,7 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
 // MARK: BORDAS ARREDONDADAS
         
         
-        fotoMigaEmPerigo.layer.cornerRadius = fotoMigaEmPerigo.frame.size.width/1.4
+        fotoMigaEmPerigo.layer.cornerRadius = fotoMigaEmPerigo.frame.size.width/2
         fotoMigaEmPerigo.clipsToBounds = true
         
         

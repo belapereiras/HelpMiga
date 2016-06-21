@@ -134,9 +134,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="470"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfieMigaEmPerigo" translatesAutoresizingMaskIntoConstraints="NO" id="641-gZ-zFX">
-                                <rect key="frame" x="180" y="40" width="240" height="120"/>
+                                <rect key="frame" x="240" y="40" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="ARQ-jg-fLC"/>
+                                    <constraint firstAttribute="height" constant="120" id="NQo-dE-OAn"/>
+                                    <constraint firstAttribute="width" constant="120" id="cva-I8-MzN"/>
                                     <constraint firstAttribute="height" constant="120" id="sQW-nj-gH0"/>
                                 </constraints>
                                 <variation key="default">
@@ -311,10 +313,12 @@
                             <constraint firstItem="huF-Ul-q9L" firstAttribute="top" secondItem="Uba-28-1WN" secondAttribute="bottom" constant="22" id="vyy-nA-Dua"/>
                             <constraint firstItem="Uba-28-1WN" firstAttribute="centerX" secondItem="9fx-Nq-c4e" secondAttribute="centerX" id="wJX-O7-YKJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="XbS-od-uiG" secondAttribute="bottom" constant="130" id="xYV-F3-szJ"/>
-                            <constraint firstItem="641-gZ-zFX" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" multiplier="0.4:1" id="z3Y-EU-1Bb"/>
+                            <constraint firstItem="641-gZ-zFX" firstAttribute="width" secondItem="9fx-Nq-c4e" secondAttribute="width" id="z3Y-EU-1Bb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Bxf-2f-Fjx"/>
+                                <exclude reference="z3Y-EU-1Bb"/>
                                 <exclude reference="Apu-UC-hs7"/>
                                 <exclude reference="DEm-d4-u6W"/>
                                 <exclude reference="WsJ-ms-oMI"/>
