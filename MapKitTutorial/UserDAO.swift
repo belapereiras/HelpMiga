@@ -146,7 +146,10 @@ class UserDAO {
             if error == nil {
                 if subscriptions!.isEmpty {
                     
-                    let predicate = NSPredicate(value: true)
+                    
+                    let radiusInMeters = 500
+                    let pred = NSPredicate(value: true)
+                    let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f", "Location", Location.sharedInstace.lastLocation, radiusInMeters)
                     
                     let subscription = CKSubscription(recordType:"Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     

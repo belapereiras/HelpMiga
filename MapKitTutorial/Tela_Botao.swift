@@ -24,7 +24,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         
         girl.hidden = true
         helpMigaLabel.hidden = true
-        helpButton.alpha = 0.5
+//        helpButton.alpha = 0.5
         
         UserDAO.sharedInstace.saveAskHelp(Location.sharedInstace.lastLocation)
         addObservers()
