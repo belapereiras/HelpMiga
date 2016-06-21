@@ -15,7 +15,6 @@ class Login: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var senha: UITextField!
     var loginSuccess:Bool?
     
-    
     @IBAction func entrar(sender: UIButton) {
         
         if email.text!.isEmpty == true || senha.text!.isEmpty == true {
@@ -32,9 +31,6 @@ class Login: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.email.delegate = self
-        self.senha.delegate = self
-        
         
         CKContainer(identifier: "iCloud.HelpMiga").accountStatusWithCompletionHandler { (accountStatus, error) in
             if accountStatus == CKAccountStatus.NoAccount {
@@ -48,6 +44,8 @@ class Login: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    
     
     func notifyUser(title: String, message: String) -> Void {
         let alert = UIAlertController(title: title,
