@@ -11,6 +11,7 @@ import CloudKit
 
 class Login: UIViewController, UITextFieldDelegate {
     
+    let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
     var loginSuccess:Bool?
@@ -30,10 +31,12 @@ class Login: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        loadDataNS()
+    
         CKContainer(identifier: "iCloud.HelpMiga").accountStatusWithCompletionHandler { (accountStatus, error) in
             if accountStatus == CKAccountStatus.NoAccount {
                 print("nao tem conta icloud")
+
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
                     //tem que ter um outlet do botao entrar
@@ -44,24 +47,57 @@ class Login: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func registerForKeyboardNotifications() {
+//    func registerForKeyboardNotifications() {
+//        
+//        let notificationCenter = NSNotificationCenter.defaultCenter()
+//        
+//        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeShown:"),name: UIKeyboardWillShowNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+//    }
+//    
+//    
+//    func keyboardWillBeShown(sender: NSNotification) {
+//        let info: NSDictionary = sender.userInfo!
+//        let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as! NSValue
+//        let keyboardSize: CGSize = value.CGRectValue().size
+//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+
+    func saveDataNS() {
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+        defaults.setObject(self.email.text, forKey: "email")
+        defaults.setObject(self.senha.text, forKey: "senha")
+//        defaults.setObject(self.emailTextField.text, forKey: "email")
+//        defaults.setObject(self.phoneNumberTextField.text, forKey: "phoneNumber")
         
-        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeShown:"),name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+        defaults.synchronize()
     }
     
-    
-    func keyboardWillBeShown(sender: NSNotification) {
-        let info: NSDictionary = sender.userInfo!
-        let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as! NSValue
-        let keyboardSize: CGSize = value.CGRectValue().size
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+    func loadDataNS() {
+        
+        if let emailIsNotNill = defaults.objectForKey("email") as? String {
+            if let senhalIsNotNill = defaults.objectForKey("senha") as? String {
+        
+//            self.firstNameTextField.text = defaults.objectForKey("firstName") as String
+            let vc = ViewController()
+            self.presentViewController(vc, animated: true, completion: nil)
+            }
+        }
+        
+        
+//        if let senhaIsNotNill = defaults.objectForKey("lastName") as? String {
+//            self.lastNameTextField.text = defaults.objectForKey("lastName") as String
+//        }
+        
+//        if let emailIsNotNill = defaults.objectForKey("email") as? String {
+//            self.emailTextField.text = defaults.objectForKey("email") as String
+//        }
+//        
+//        if let phoneNumberIsNotNill = defaults.objectForKey("phoneNumber") as? String {
+//            self.phoneNumberTextField.text = defaults.objectForKey("phoneNumber") as String
+//        }
     }
-    
     
     func notifyUser(title: String, message: String) -> Void {
         let alert = UIAlertController(title: title,
@@ -130,6 +166,7 @@ class Login: UIViewController, UITextFieldDelegate {
                 }
                 
                 if self.loginSuccess == true {
+                    self.saveDataNS()
 //                    self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
                     let vc = ViewController()
                     self.presentViewController(vc, animated: true, completion: nil)
