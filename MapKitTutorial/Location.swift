@@ -51,6 +51,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         print(locations.last)
         lastLocation = locations.last!
         UserDAO.sharedInstace.saveMyLocation(locations.last!)
+        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

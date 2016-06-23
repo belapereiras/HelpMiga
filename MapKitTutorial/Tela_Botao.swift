@@ -42,6 +42,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         let lng = notification.userInfo!["lng"] as! Double
         
         print("LATITUDE: \(lat) LONGITUDE: \(lng)")
+    
 
     }
 
@@ -55,6 +56,12 @@ class ViewController: UIViewController, MKMapViewDelegate{
         Location.sharedInstace.start()
 
         //tem que dar zoom no mapview
+        
+        let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
+        
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
+        
+        self.mapView.setRegion(region, animated: true)
  
     }
 

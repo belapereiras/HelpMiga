@@ -7,6 +7,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Roboto-Italic.ttf">
+            <string>Roboto-Italic</string>
+            <string>Roboto-Italic</string>
+            <string>Roboto-Italic</string>
+        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -17,17 +22,12 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
         </mutableArray>
-        <mutableArray key="RobotoItalic.ttf">
-            <string>Roboto-Italic</string>
-            <string>Roboto-Italic</string>
-            <string>Roboto-Italic</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TelaBotao" id="BYZ-38-t0r" customClass="ViewController" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -121,7 +121,7 @@
         <!--View Controller2-->
         <scene sceneID="bn8-70-b1Z">
             <objects>
-                <viewController id="Lr5-T7-BvZ" customClass="ViewController2" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TelaPerigo" id="Lr5-T7-BvZ" customClass="ViewController2" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YHZ-m7-B0X"/>
                         <viewControllerLayoutGuide type="bottom" id="SFV-ae-vgS"/>
@@ -130,9 +130,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpBG" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-od-uiG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="470"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfieMigaEmPerigo" translatesAutoresizingMaskIntoConstraints="NO" id="641-gZ-zFX">
                                 <rect key="frame" x="240" y="40" width="120" height="120"/>
                                 <constraints>
@@ -306,6 +303,9 @@
                                     <segue destination="Ss9-3M-vfs" kind="show" id="pEI-gk-7s1"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpBG" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-od-uiG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="470"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -345,7 +345,7 @@
         <!--View Controller3-->
         <scene sceneID="6T8-dJ-KlN">
             <objects>
-                <viewController id="Ss9-3M-vfs" customClass="ViewController3" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TelaCaminho" id="Ss9-3M-vfs" customClass="ViewController3" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uTm-8Z-gCW"/>
                         <viewControllerLayoutGuide type="bottom" id="ox7-Tr-mcJ"/>
@@ -519,7 +519,7 @@
         <!--Login-->
         <scene sceneID="uV4-iJ-Skb">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="xSo-3y-Prv" customClass="Login" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" automaticallyAdjustsScrollViewInsets="NO" id="xSo-3y-Prv" customClass="Login" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y2C-dn-EOS"/>
                         <viewControllerLayoutGuide type="bottom" id="kjT-me-ju6"/>
@@ -754,7 +754,7 @@
         <!--Title-->
         <scene sceneID="Xtp-U5-Ah7">
             <objects>
-                <viewController id="I6D-hx-1X2" customClass="Cadastro" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Cadastro" id="I6D-hx-1X2" customClass="Cadastro" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H6I-Py-xZl"/>
                         <viewControllerLayoutGuide type="bottom" id="cYB-u7-bnQ"/>
