@@ -17,6 +17,8 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var repetirSenha: UITextField!
     @IBOutlet weak var imageViewId: UIImageView!
     @IBOutlet weak var imageViewSelfie: UIImageView!
+    
+    
 //    var imageReceiver = UIImage()
     var botaoImagem:UIImageView = UIImageView()
     

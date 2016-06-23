@@ -33,6 +33,12 @@ class Login: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.email.delegate = self
+        self.senha.delegate = self
+        
+        
 //        loadDataNS()
     
         CKContainer(identifier: "iCloud.HelpMiga").accountStatusWithCompletionHandler { (accountStatus, error) in
@@ -48,19 +54,28 @@ class Login: UIViewController, UITextFieldDelegate {
             }
         }
     }
+  
+
+// MARK: DISMISS KEYBOARD
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+ //MARK: TEXT FIELD + SCROLL VIEW
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
         if (textField == senha){
-        scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+        scrollView.setContentOffset(CGPointMake(0, 80), animated: true)
     }
 }
     
     func textFieldDidEndEditing(textField: UITextField) {
         scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
     }
-    
     
     
     func saveDataNS() {
@@ -113,14 +128,6 @@ class Login: UIViewController, UITextFieldDelegate {
         })
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(userText: UITextField) -> Bool {
-        userText.resignFirstResponder()
-        return true;
-    }
     
     func verifyEmail(email: String) {
         
