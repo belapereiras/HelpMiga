@@ -21,9 +21,12 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var imageViewSelfie: UIImageView!
     
     
+//    var imageReceiver = UIImage()
+
     var selfieImageReceiver = UIImage()
     var idImageReceiver = UIImage()
     
+
     var botaoImagem:UIImageView = UIImageView()
     
     var selfieImageURL: NSURL?
