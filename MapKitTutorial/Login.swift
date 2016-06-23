@@ -71,7 +71,7 @@ class Login: UIViewController, UITextFieldDelegate {
         if (textField == senha){
         scrollView.setContentOffset(CGPointMake(0, 80), animated: true)
     }
-}
+    }
     
     func textFieldDidEndEditing(textField: UITextField) {
         scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
@@ -88,30 +88,30 @@ class Login: UIViewController, UITextFieldDelegate {
         defaults.synchronize()
     }
     
-    func loadDataNS() {
-        
-        if let emailIsNotNill = defaults.objectForKey("email") as? String {
-            if let senhalIsNotNill = defaults.objectForKey("senha") as? String {
-        
-//            self.firstNameTextField.text = defaults.objectForKey("firstName") as String
-            let vc = ViewController()
-            self.presentViewController(vc, animated: true, completion: nil)
-            }
-        }
-        
-        
-//        if let senhaIsNotNill = defaults.objectForKey("lastName") as? String {
-//            self.lastNameTextField.text = defaults.objectForKey("lastName") as String
-//        }
-        
+//    func loadDataNS() {
+//        
 //        if let emailIsNotNill = defaults.objectForKey("email") as? String {
-//            self.emailTextField.text = defaults.objectForKey("email") as String
+//            if let senhalIsNotNill = defaults.objectForKey("senha") as? String {
+//        
+////            self.firstNameTextField.text = defaults.objectForKey("firstName") as String
+//            let vc = ViewController()
+//            self.presentViewController(vc, animated: true, completion: nil)
+//            }
 //        }
 //        
-//        if let phoneNumberIsNotNill = defaults.objectForKey("phoneNumber") as? String {
-//            self.phoneNumberTextField.text = defaults.objectForKey("phoneNumber") as String
-//        }
-    }
+//        
+////        if let senhaIsNotNill = defaults.objectForKey("lastName") as? String {
+////            self.lastNameTextField.text = defaults.objectForKey("lastName") as String
+////        }
+//        
+////        if let emailIsNotNill = defaults.objectForKey("email") as? String {
+////            self.emailTextField.text = defaults.objectForKey("email") as String
+////        }
+////        
+////        if let phoneNumberIsNotNill = defaults.objectForKey("phoneNumber") as? String {
+////            self.phoneNumberTextField.text = defaults.objectForKey("phoneNumber") as String
+////        }
+//    }
     
     func notifyUser(title: String, message: String) -> Void {
         let alert = UIAlertController(title: title,
@@ -150,7 +150,7 @@ class Login: UIViewController, UITextFieldDelegate {
     
     func verifyLogin(email: String, senha: String) {
         
-        let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
+        let pred = NSPredicate(format: "Email == %@ AND Senha == %@", email, senha)
         let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
         
         UserDAO.sharedInstace.container.performQuery(query, inZoneWithID: nil) { results, error in
@@ -161,8 +161,13 @@ class Login: UIViewController, UITextFieldDelegate {
                 if results!.count > 0 {
                     print("email e senha combinam")
                     self.loginSuccess = true
-//                    dispatch_async(dispatch_get_main_queue(), {
-//                        self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
+                    
+//                    self.saveDataNS()
+                    let vc = ViewController()
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.presentViewController(vc, animated: true, completion: nil)
+                    })
                     
                 } else {
                     print("email e senha nao combinam")
@@ -171,27 +176,14 @@ class Login: UIViewController, UITextFieldDelegate {
                     
                 }
                 
-                if self.loginSuccess == true {
-                    self.saveDataNS()
-//                    self.performSegueWithIdentifier("irParaPrincipal", sender: nil)
-                    let vc = ViewController()
-                    self.presentViewController(vc, animated: true, completion: nil)
-                }
+//                if self.loginSuccess == true {
+//                    self.saveDataNS()
+//                    let vc = ViewController()
+//                    self.presentViewController(vc, animated: true, completion: nil)
+//                }
             }
             
         }
     }
-    
-//    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-//        if let ident = identifier {
-//            if ident == "irParaPrincipal" {
-//                if loginSuccess != true {
-//                    return false
-//                }
-//            }
-//        }
-//        return true
-//    }
-    
    
 }
