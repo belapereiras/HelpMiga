@@ -47,6 +47,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addObservers()
 
         checkLocationAuthorizationStatus()
         

@@ -60,9 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                let user = queryNotification.recordFields!["owner"] as! String
                 let latitude = queryNotification.recordFields!["Lat"] as! Double
                 let longitude = queryNotification.recordFields!["Long"] as! Double
+                let nome = queryNotification.recordFields!["Nome"] as! String
                 
                 
-                let userInfo = ["Lat":latitude, "Long":longitude]
+                let userInfo = ["Lat":latitude, "Long":longitude, "Nome":nome]
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("newLocation", object: nil, userInfo: userInfo as [NSObject : AnyObject])
 //                UserDAO.sharedInstace.fetchAndDisplayNewRecord(recordID!)
