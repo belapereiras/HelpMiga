@@ -31,7 +31,6 @@ class Login: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         CKContainer(identifier: "iCloud.HelpMiga").accountStatusWithCompletionHandler { (accountStatus, error) in
             if accountStatus == CKAccountStatus.NoAccount {
                 print("nao tem conta icloud")
@@ -45,6 +44,23 @@ class Login: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func registerForKeyboardNotifications() {
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeShown:"),name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    
+    func keyboardWillBeShown(sender: NSNotification) {
+        let info: NSDictionary = sender.userInfo!
+        let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as! NSValue
+        let keyboardSize: CGSize = value.CGRectValue().size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
     
     
     func notifyUser(title: String, message: String) -> Void {

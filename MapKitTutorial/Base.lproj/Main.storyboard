@@ -531,6 +531,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="2TZ-5H-tC2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-sQ-qOk">
+                                <rect key="frame" x="136" y="100" width="329" height="384"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpMigaImage" translatesAutoresizingMaskIntoConstraints="NO" id="rrz-QE-S8Z" userLabel="imageHelpMiga">
                                 <rect key="frame" x="75" y="100" width="450" height="180"/>
                                 <constraints>
@@ -639,7 +642,6 @@
                                         </variation>
                                         <connections>
                                             <action selector="entrar:" destination="xSo-3y-Prv" eventType="touchUpInside" id="2UI-Sr-yhV"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="pYn-ej-RlE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1033,7 +1035,4 @@
         <image name="senhaField" width="291" height="42"/>
         <image name="usuárioField" width="291" height="42"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="pYn-ej-RlE"/>
-    </inferredMetricsTieBreakers>
 </document>
