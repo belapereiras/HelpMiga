@@ -55,6 +55,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
         Location.sharedInstace.start()
 
         //tem que dar zoom no mapview
+        
+        
  
     }
 

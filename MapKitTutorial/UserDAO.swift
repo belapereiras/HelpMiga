@@ -12,6 +12,8 @@ import CloudKit
 
 class UserDAO {
     
+    
+    
     var currentRecord: CKRecord?
     static let sharedInstace = UserDAO()
     
@@ -23,6 +25,7 @@ class UserDAO {
             print("user ID:\(userRecordID?.recordName)")
         }
     }
+    
     
     
     
@@ -65,7 +68,7 @@ class UserDAO {
     }
     
     
-    func saveUser(nome:String, email:String, senha:String) {
+    func saveUser(nome:String, email:String, senha:String, id: CKAsset, selfie: CKAsset) {
         
         let usersHelpMigaID = CKRecordID(recordName: "UsersHelpMiga" + (userRecordID?.recordName)!)
 
@@ -78,6 +81,8 @@ class UserDAO {
                 fetchedRecord!["Nome"] = nome
                 fetchedRecord!["Email"] = email
                 fetchedRecord!["Senha"] = senha
+                fetchedRecord!["ID"] = id
+                fetchedRecord!["Selfie"] = selfie
                 
                 self.save(fetchedRecord!)
                 
@@ -92,12 +97,15 @@ class UserDAO {
                     userRecord["Nome"] = nome
                     userRecord["Email"] = email
                     userRecord["Senha"] = senha
+                    userRecord["ID"] = id
+                    userRecord["Selfie"] = selfie
                     
                     self.save(userRecord)
                 }
             }
         }
     }
+    
     
     func saveAskHelp(location: CLLocation) {
             
@@ -148,7 +156,7 @@ class UserDAO {
                     
                     
                     let radiusInMeters = 500
-                    let pred = NSPredicate(value: true)
+//                    let pred = NSPredicate(value: true)
                     let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f", "Location", Location.sharedInstace.lastLocation, radiusInMeters)
                     
                     let subscription = CKSubscription(recordType:"Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
@@ -180,16 +188,4 @@ class UserDAO {
             }
         }
     }
-    
-//    func fetchAndDisplayNewRecord(recordID: CKRecordID) {
-//        container.fetchRecordWithID(recordID) {newRecord, error in
-//            if error != nil {
-//                print("Fetch new record error: \(error!.localizedDescription)")
-//            } else {
-//                let lat = newRecord!.objectForKey("Lat") as! String
-//                let long = newRecord!.objectForKey("Long") as! String
-//                print ("Lat is: \(lat), Long is \(long)")
-//            }
-//        }
-//    }
 }
