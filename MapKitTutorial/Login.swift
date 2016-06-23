@@ -12,6 +12,8 @@ import CloudKit
 class Login: UIViewController, UITextFieldDelegate {
     
     let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
     var loginSuccess:Bool?
@@ -47,23 +49,20 @@ class Login: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    func registerForKeyboardNotifications() {
-//        
-//        let notificationCenter = NSNotificationCenter.defaultCenter()
-//        
-//        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeShown:"),name: UIKeyboardWillShowNotification, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
-//    }
-//    
-//    
-//    func keyboardWillBeShown(sender: NSNotification) {
-//        let info: NSDictionary = sender.userInfo!
-//        let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as! NSValue
-//        let keyboardSize: CGSize = value.CGRectValue().size
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if (textField == senha){
+        scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
+}
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+    }
+    
+    
+    
     func saveDataNS() {
         
         defaults.setObject(self.email.text, forKey: "email")
