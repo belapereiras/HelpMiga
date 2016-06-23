@@ -55,19 +55,14 @@ class ViewController: UIViewController, MKMapViewDelegate{
         
         Location.sharedInstace.start()
 
-
-        let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-        
-        self.mapView.setRegion(region, animated: true)
-
- 
     }
 
    
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
+            self.mapView.setRegion(region, animated: true)
             mapView.showsUserLocation = true
             Location.sharedInstace.locationManager.startUpdatingLocation()
         } else {

@@ -24,7 +24,7 @@ class Login: UIViewController, UITextFieldDelegate {
             notifyUser("Ops!", message: "Todos os campos devem ser preenchidos")
         } else {
         
-        verifyEmail(email.text!)
+//        verifyEmail(email.text!)
         verifyLogin(email.text!, senha: senha.text!)
 
 
@@ -87,6 +87,11 @@ class Login: UIViewController, UITextFieldDelegate {
         
         defaults.synchronize()
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     
 //    func loadDataNS() {
 //        
@@ -163,10 +168,11 @@ class Login: UIViewController, UITextFieldDelegate {
                     self.loginSuccess = true
                     
 //                    self.saveDataNS()
-                    let vc = ViewController()
                     
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.presentViewController(vc, animated: true, completion: nil)
+//                        let vc = ViewController()
+//                        self.presentViewController(vc, animated: true, completion: nil)
+                        self.performSegueWithIdentifier("irParaBotao", sender: nil)
                     })
                     
                 } else {

@@ -16,55 +16,35 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
     @IBOutlet weak var repetirSenha: UITextField!
-    
     @IBOutlet weak var imageViewId: UIImageView!
     @IBOutlet weak var imageViewSelfie: UIImageView!
     
-    
-//    var imageReceiver = UIImage()
-
     var selfieImageReceiver = UIImage()
     var idImageReceiver = UIImage()
-    
-
     var botaoImagem:UIImageView = UIImageView()
-    
     var selfieImageURL: NSURL?
     var idImageURL: NSURL?
-    
     let selfieDocumentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-    
     let selfieTempImageName = "temp_image.jpg"
-
     let idDocumentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-    
     let idTempImageName = "temp_image.jpg"
-    
-    
-    
-    
+    var selfieImageAsset: CKAsset?
+    var idImageAsset: CKAsset?
+
     @IBAction func botaoId(sender: UIButton) {
         botaoImagem = imageViewId
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
             let idPicker = UIImagePickerController()
-            
             idPicker.delegate = self
             idPicker.sourceType = UIImagePickerControllerSourceType.Camera;
             idPicker.allowsEditing = false
-            
-//            imageViewId.image = idImageReceiver
-            
-            
 
             self.presentViewController(idPicker, animated: true, completion: nil)
         }
     }
-    
-    
-    
-    
+
     @IBAction func botaoSelfie(sender: UIButton) {
         botaoImagem = imageViewSelfie
         
@@ -74,56 +54,44 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
             selfiePicker.delegate = self
             selfiePicker.sourceType = UIImagePickerControllerSourceType.Camera;
             selfiePicker.allowsEditing = false
-            
-            
-            
-//            imageViewSelfie.image = selfieImageReceiver
-//            let imageData: NSData = UIImageJPEGRepresentation(imageViewSelfie.image!, 0.8)!
-//            let path = selfieDocumentsDirectoryPath.stringByAppendingPathComponent(selfieTempImageName)
-//            selfieImageURL = NSURL(fileURLWithPath: path)
-//            imageData.writeToURL(selfieImageURL, atomically: true)
-            
-            self.presentViewController(selfiePicker, animated: true, completion: nil)
 
+            self.presentViewController(selfiePicker, animated: true, completion: nil)
         }
-        
-        
     }
     
     @IBAction func enviarParaAprovacao(sender: UIButton) {
-        let selfieImageAsset = CKAsset(fileURL: selfieImageURL!)
-        let idImageAsset = CKAsset(fileURL: idImageURL!)
+        
+//        let selfieImageAsset = CKAsset(fileURL: selfieImageURL!)
+//        let idImageAsset = CKAsset(fileURL: idImageURL!)
         let nomeUsuaria = nome.text
         let emailUsuaria = email.text
         let senhaUsuaria = senha.text
         let repetirSenhaUsuaria = repetirSenha.text
+        
+        if imageViewId.image == nil {
+            print ("")
+        } else {
+            idImageAsset = CKAsset(fileURL: idImageURL!)
+        }
+        if imageViewSelfie.image == nil {
+            print ("")
+        } else {
+            selfieImageAsset = CKAsset(fileURL: selfieImageURL!)
+        }
 
         if nomeUsuaria?.isEmpty == true || emailUsuaria?.isEmpty == true || senhaUsuaria?.isEmpty == true || repetirSenhaUsuaria?.isEmpty == true {
-            alerta ("Todos os campos devem ser preenchidos")
+            alerta ("Todos os campos devem ser preenchidos. Não esqueça das fotos!")
+            return
         }
         if senhaUsuaria != repetirSenhaUsuaria {
             alerta ("As senhas não combinam")
+            return
         }
-        
-        //
-        
-        
-//        if imageViewId.image == nil {
-//            alerta("Você não incluiu a foto da sua identidade!")
-//        }
-//        
-//        if imageViewSelfie.image == nil {
-//            alerta("Você não incluiu a sua selfie!")
-//        }
-            
         else {
             alerta("Seus cadastro foi enviado com sucesso! Aguarde 1 dia útil para a aprovação. Enviaremos a resposta por email.")
             
-            UserDAO.sharedInstace.saveUser(nomeUsuaria!, email: emailUsuaria!, senha: senhaUsuaria!, id: idImageAsset, selfie: selfieImageAsset)
-            
+            UserDAO.sharedInstace.saveUser(nomeUsuaria!, email: emailUsuaria!, senha: senhaUsuaria!, id: idImageAsset!, selfie: selfieImageAsset!)
         }
-
-   
     }
 
     override func viewDidLoad() {
@@ -140,8 +108,9 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         let meuAlerta = UIAlertController(title: "Ops!", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
         let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
         meuAlerta.addAction(okButton)
+        dispatch_async(dispatch_get_main_queue(), {
         self.presentViewController(meuAlerta, animated: true, completion: nil)
-        
+        })
     }
 
     func textFieldShouldReturn(userText: UITextField) -> Bool {
