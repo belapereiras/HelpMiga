@@ -391,18 +391,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nnf-vj-NUg">
                                 <rect key="frame" x="100" y="285" width="300" height="84"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="H8u-Jg-Hea"/>
-                                            <constraint firstAttribute="width" constant="300" id="dLK-cz-d8e"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
-                                        <rect key="frame" x="0.0" y="30" width="300" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calma, miga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-ol-mbR">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Zkj-1t-hnF"/>
                                             <constraint firstAttribute="height" constant="27" id="qva-Jq-DN5"/>
@@ -415,6 +405,16 @@
                                                 <exclude reference="Zkj-1t-hnF"/>
                                             </mask>
                                         </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Priscila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-QY-o2d">
+                                        <rect key="frame" x="0.0" y="27" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="H8u-Jg-Hea"/>
+                                            <constraint firstAttribute="width" constant="300" id="dLK-cz-d8e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="está vindo." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-jz-CeP">
                                         <rect key="frame" x="0.0" y="57" width="300" height="27"/>
