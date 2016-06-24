@@ -686,6 +686,7 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="entrar:" destination="xSo-3y-Prv" eventType="touchUpInside" id="2UI-Sr-yhV"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="irParaBotao" id="ycp-11-FYe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1019,4 +1020,7 @@
         <image name="senhaField" width="291" height="42"/>
         <image name="usuárioField" width="291" height="42"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ycp-11-FYe"/>
+    </inferredMetricsTieBreakers>
 </document>
