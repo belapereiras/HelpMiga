@@ -155,7 +155,7 @@ class Login: UIViewController, UITextFieldDelegate {
     
     func verifyLogin(email: String, senha: String) {
         
-        let pred = NSPredicate(format: "Email == %@ AND Senha == %@", email, senha)
+        let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
         let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
         
         UserDAO.sharedInstace.container.performQuery(query, inZoneWithID: nil) { results, error in
@@ -165,7 +165,7 @@ class Login: UIViewController, UITextFieldDelegate {
             } else {
                 if results!.count > 0 {
                     print("email e senha combinam")
-                    self.loginSuccess = true
+//                    self.loginSuccess = true
                     
 //                    self.saveDataNS()
                     
@@ -177,7 +177,7 @@ class Login: UIViewController, UITextFieldDelegate {
                     
                 } else {
                     print("email e senha nao combinam")
-                    self.loginSuccess = false
+//                    self.loginSuccess = false
                     self.notifyUser("Ops!", message: "Usuário ou senha não combinam")
                     
                 }
