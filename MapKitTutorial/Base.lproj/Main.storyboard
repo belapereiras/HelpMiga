@@ -745,7 +745,7 @@
                         <outlet property="email" destination="03Y-B9-hPS" id="fXu-iF-34p"/>
                         <outlet property="scrollView" destination="VFT-a2-X7x" id="Ch3-yo-KiR"/>
                         <outlet property="senha" destination="Yj5-nV-ltx" id="VZ9-6S-4wo"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="MgW-rh-p4d"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="irParaBotao" id="MgW-rh-p4d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCZ-VX-mmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
