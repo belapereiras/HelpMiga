@@ -119,12 +119,10 @@ class UserDAO {
             
             self.save(helpRecord)
         print ("PEDIU HELP")
-            
     }
 
  
     func save(record:CKRecord) {
-
         container.saveRecord(record) { (savedRecord, error) in
             if error == nil {
                 print ("salvou record")
@@ -135,9 +133,7 @@ class UserDAO {
     }
     
     func getUserID() {
-        
         CKContainer(identifier: "iCloud.HelpMiga").fetchUserRecordIDWithCompletionHandler { (recordID, error) in
-        
             guard error == nil else {
                 // Handle the error here
                 print(#file, error?.localizedDescription)
@@ -154,7 +150,6 @@ class UserDAO {
             if error == nil {
                 if subscriptions!.isEmpty {
                     
-                    
                     let radiusInMeters = 500
 //                    let pred = NSPredicate(value: true)
                     let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f", "Location", Location.sharedInstace.lastLocation, radiusInMeters)
@@ -162,11 +157,11 @@ class UserDAO {
                     let subscription = CKSubscription(recordType:"Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     
                     let notification = CKNotificationInfo()
+                    notification.desiredKeys = ["Lat", "Long"]
 //                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
 //                    notification.shouldSendContentAvailable = true
                     notification.shouldBadge = true
                     notification.alertBody = "Help"
-                    
                     subscription.notificationInfo = notification
                     
                     self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in

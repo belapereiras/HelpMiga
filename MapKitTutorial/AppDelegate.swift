@@ -23,50 +23,86 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
         application.registerUserNotificationSettings(settings)
-        
-
         application.registerForRemoteNotifications()
         
         UserDAO.sharedInstace.getUserID()
         UserDAO.sharedInstace.subscribeForFriendsLocations()
         
-//        if let options: NSDictionary = launchOptions {
-//            let remoteNotification = options.objectForKey(UIApplicationLaunchOptionsRemoteNotificationKey) as? NSDictionary
-//            
-//            if let notification = remoteNotification {
-//                self.application(application, didReceiveRemoteNotification: notification as [NSObject:AnyObject])
-//            }
-//        }
+        //handel push note if app is closed
+        //Sends it to the regular handler for push notifcaiton
+        //didrecivepushnotificaiton
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+            self.application(application, didReceiveRemoteNotification: remoteNotification as [NSObject : AnyObject])
+        }
+
+        if launchOptions != nil {
+            print(launchOptions)
+            let storyboard = UIStoryboard(name: "Main.storyboard", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TelaPerigo")
+            window?.rootViewController = vc
+        }
         
         return true
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+
         
         let cloudKitNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
-        
         if cloudKitNotification.notificationType == .Query {
             
             let queryNotification = cloudKitNotification as! CKQueryNotification
 //            let recordID = queryNotification.recordID
-            
+
             if queryNotification.queryNotificationReason == .RecordDeleted {
                 // If the record has been deleted in CloudKit then delete the local copy here
             } else  { //if queryNotification.queryNotificationReason == .RecordCreated || .RecordCreated
                 // If the record has been created or changed, we fetch the data from CloudKit
                 
-                print("QUERY:\(queryNotification.recordFields)")
-                
-//                let user = queryNotification.recordFields!["owner"] as! String
-                let latitude = queryNotification.recordFields!["Lat"] as! Double
-                let longitude = queryNotification.recordFields!["Long"] as! Double
-                let nome = queryNotification.recordFields!["Nome"] as! String
-                
-                
-                let userInfo = ["Lat":latitude, "Long":longitude, "Nome":nome]
-                
-                NSNotificationCenter.defaultCenter().postNotificationName("newLocation", object: nil, userInfo: userInfo as [NSObject : AnyObject])
-//                UserDAO.sharedInstace.fetchAndDisplayNewRecord(recordID!)
+                UserDAO.sharedInstace.container.fetchRecordWithID(queryNotification.recordID!, completionHandler: { (record: CKRecord?, error: NSError?) -> Void in
+                    guard error == nil else {
+                        print(error!.localizedDescription)
+                        return
+                    }
+                    
+                    if queryNotification.queryNotificationReason == .RecordUpdated {
+                        // Use the information in the record object to modify your local data
+                        print("nada")
+                    } else {
+                        // Use the information in the record object to create a new local object
+                        let latitude = queryNotification.recordFields!["Lat"] as! Double
+                        let longitude = queryNotification.recordFields!["Long"] as! Double
+                        
+                        //                let nome = queryNotification.recordFields!["Nome"] as! String
+                        //                let foto = queryNotification.recordFields!["Foto"] as! CKAsset
+                        
+                        print("QUERY NOTIFICATION:\(queryNotification.recordFields)")
+                        
+                        let userInfo = ["Lat":latitude, "Long":longitude]
+                        
+                        //                let userInfo = ["Lat":latitude, "Long":longitude, "Nome":nome, "Foto":foto]
+                        print("\n\n")
+                        print(userInfo)
+                        
+                        NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
+                    }
+                })
+ 
+//                let latitude = queryNotification.recordFields!["Lat"] as! Double
+//                let longitude = queryNotification.recordFields!["Long"] as! Double
+//
+////                let nome = queryNotification.recordFields!["Nome"] as! String
+////                let foto = queryNotification.recordFields!["Foto"] as! CKAsset
+//                
+//                print("QUERY NOTIFICATION:\(queryNotification.recordFields)")
+//                
+//                let userInfo = ["Lat":latitude, "Long":longitude]
+//
+////                let userInfo = ["Lat":latitude, "Long":longitude, "Nome":nome, "Foto":foto]
+//                print("\n\n")
+//                print(userInfo)
+//                
+//                NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
             }
         }
     }

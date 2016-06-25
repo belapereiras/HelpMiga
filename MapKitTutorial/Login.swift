@@ -78,15 +78,15 @@ class Login: UIViewController, UITextFieldDelegate {
     }
     
     
-    func saveDataNS() {
-        
-        defaults.setObject(self.email.text, forKey: "email")
-        defaults.setObject(self.senha.text, forKey: "senha")
-//        defaults.setObject(self.emailTextField.text, forKey: "email")
-//        defaults.setObject(self.phoneNumberTextField.text, forKey: "phoneNumber")
-        
-        defaults.synchronize()
-    }
+//    func saveDataNS() {
+//        
+//        defaults.setObject(self.email.text, forKey: "email")
+//        defaults.setObject(self.senha.text, forKey: "senha")
+////        defaults.setObject(self.emailTextField.text, forKey: "email")
+////        defaults.setObject(self.phoneNumberTextField.text, forKey: "phoneNumber")
+//        
+//        defaults.synchronize()
+//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -155,6 +155,12 @@ class Login: UIViewController, UITextFieldDelegate {
     
     func verifyLogin(email: String, senha: String) {
         
+        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        myActivityIndicator.center = view.center
+        myActivityIndicator.color = UIColor.grayColor()
+        myActivityIndicator.startAnimating()
+        view.addSubview(myActivityIndicator)
+        
         let pred = NSPredicate(format: "Email = %@ AND Senha = %@", email, senha)
         let query = CKQuery(recordType: "UsersHelpMiga", predicate: pred)
         
@@ -172,12 +178,17 @@ class Login: UIViewController, UITextFieldDelegate {
                     dispatch_async(dispatch_get_main_queue(), {
 //                        let vc = ViewController()
 //                        self.presentViewController(vc, animated: true, completion: nil)
+                        myActivityIndicator.stopAnimating()
                         self.performSegueWithIdentifier("irParaBotao", sender: nil)
                     })
                     
                 } else {
                     print("email e senha nao combinam")
 //                    self.loginSuccess = false
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        myActivityIndicator.stopAnimating()
+                    })
                     self.notifyUser("Ops!", message: "Usuário ou senha não combinam")
                     
                 }

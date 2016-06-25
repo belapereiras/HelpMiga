@@ -27,34 +27,35 @@ class ViewController: UIViewController, MKMapViewDelegate{
 //        helpButton.alpha = 0.5
         
         UserDAO.sharedInstace.saveAskHelp(Location.sharedInstace.lastLocation)
-        addObservers()
-
     }
     
     func addObservers() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newLocation", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
     }
     
     func updateLocation(notification:NSNotification) {
         
-        let lat = notification.userInfo!["lat"] as! Double
-        let lng = notification.userInfo!["lng"] as! Double
-        
-        print("LATITUDE: \(lat) LONGITUDE: \(lng)")
-    
+        let latHelp = notification.userInfo!["Lat"] as! Double
+        let lngHelp = notification.userInfo!["Long"] as! Double
 
+
+//        let nome = notification.userInfo!["Nome"] as! String
+
+        print("CHEGOU NOTIFICAÇÃO, LATITUDE: \(latHelp) LONGITUDE: \(lngHelp)")
+//        dispatch_async(dispatch_get_main_queue(), {
+//        self.performSegueWithIdentifier("irParaBotao", sender: nil)
+//        })
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addObservers()
-
         checkLocationAuthorizationStatus()
-        
+        //addObservers()
         Location.sharedInstace.start()
-
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
     }
 
    
