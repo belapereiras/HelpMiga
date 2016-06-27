@@ -303,7 +303,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="estouIndoMiga:" destination="Lr5-T7-BvZ" eventType="touchUpInside" id="pxq-9f-aYA"/>
-                                    <segue destination="Ss9-3M-vfs" kind="show" id="pEI-gk-7s1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -336,6 +335,7 @@
                         <outlet property="nomeMigaEmPerigo" destination="PKT-5Q-qik" id="wcK-FX-dog"/>
                         <outlet property="rotaParaMigaEmPerigo" destination="2nQ-bg-Yuy" id="t8g-6e-H1v"/>
                         <outlet property="tempoParaMigaEmPerigo" destination="huF-Ul-q9L" id="Gbs-8k-aNc"/>
+                        <segue destination="Ss9-3M-vfs" kind="show" identifier="irParaMigaCaminho" id="37o-KX-6eh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKg-Uq-2iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
