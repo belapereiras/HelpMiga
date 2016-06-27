@@ -13,7 +13,6 @@ import CoreLocation
 class ViewController: UIViewController, MKMapViewDelegate{
     
     
-    
 // MARK: STORYBOARD
 
     @IBOutlet weak var mapView: MKMapView!
@@ -29,6 +28,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
         UserDAO.sharedInstace.saveAskHelp(Location.sharedInstace.lastLocation)
     }
     
+    
+    
     func addObservers() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
@@ -36,16 +37,32 @@ class ViewController: UIViewController, MKMapViewDelegate{
     
     func updateLocation(notification:NSNotification) {
         
-        let latHelp = notification.userInfo!["Lat"] as! Double
-        let lngHelp = notification.userInfo!["Long"] as! Double
+//        let latHelp = notification.userInfo!["Lat"] as! Double
+//        let lngHelp = notification.userInfo!["Long"] as! Double
+        
+        if let lat = notification.userInfo?["Lat"] as? Double {
+            if let long = notification.userInfo?["Long"] as? Double {
+                
+                
+                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+                    
+                    if(segue.identifier == "irParaMiga") {
+                        
+                        let yourNextViewController = (segue.destinationViewController as! ViewController2)
+                        yourNextViewController.lat = lat
+                        yourNextViewController.long = long
+                    }
+                }
 
 
 //        let nome = notification.userInfo!["Nome"] as! String
 
-        print("CHEGOU NOTIFICAÇÃO, LATITUDE: \(latHelp) LONGITUDE: \(lngHelp)")
-//        dispatch_async(dispatch_get_main_queue(), {
-//        self.performSegueWithIdentifier("irParaBotao", sender: nil)
-//        })
+        print("CHEGOU NOTIFICAÇÃO \(long), \(lat)")
+        dispatch_async(dispatch_get_main_queue(), {
+        self.performSegueWithIdentifier("irParaMiga", sender: nil)
+        })
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -56,6 +73,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         Location.sharedInstace.start()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
+        
     }
 
    

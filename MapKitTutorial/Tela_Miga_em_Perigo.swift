@@ -11,6 +11,8 @@ import MapKit
 
 class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    var lat: Double?
+    var long: Double?
     
 // MARK: STORYBOARD
     
@@ -27,10 +29,22 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     }
 
     @IBAction func estouIndoMiga(sender: UIButton) {
+        UserDAO.sharedInstace.saveEstouIndo(lat!, long: long!)
+        
+    }
+    
+    func updateLocation(notification:NSNotification) {
+                
+        print("CHEGOU NOTIFICAÇÃO \(long), \(lat)")
+        dispatch_async(dispatch_get_main_queue(), {
+        self.performSegueWithIdentifier("irParaMigaCaminho", sender: nil)
+        })
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "EstouIndo", object: nil)
         
 // MARK: BORDAS ARREDONDADAS
         

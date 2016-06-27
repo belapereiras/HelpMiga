@@ -120,6 +120,17 @@ class UserDAO {
             self.save(helpRecord)
         print ("PEDIU HELP")
     }
+    
+    func saveEstouIndo(lat: Double, long: Double) {
+
+        let helpRecord = CKRecord(recordType: "EstouIndo")
+        
+        helpRecord.setObject(lat, forKey: "Lat")
+        helpRecord.setObject(long, forKey: "Long")
+        
+        self.save(helpRecord)
+        print ("PEDIU HELP")
+    }
 
  
     func save(record:CKRecord) {
@@ -158,10 +169,11 @@ class UserDAO {
                     
                     let notification = CKNotificationInfo()
                     notification.desiredKeys = ["Lat", "Long"]
+//                    notification.desiredKeys = ["Location"]
 //                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
 //                    notification.shouldSendContentAvailable = true
                     notification.shouldBadge = true
-                    notification.alertBody = "Help"
+                    notification.alertBody = "Uma miga precisa de ajuda!"
                     subscription.notificationInfo = notification
                     
                     self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
@@ -183,4 +195,73 @@ class UserDAO {
             }
         }
     }
+    
+    func subscribeEstouIndo() {
+        
+        container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
+            if error == nil {
+                    
+                    let pred = NSPredicate(value: true)
+                    
+                    
+                    let subscription = CKSubscription(recordType:"EstouIndo", predicate: pred, options:[.FiresOnRecordCreation])
+                    
+                    let notification = CKNotificationInfo()
+
+                    notification.shouldBadge = true
+                    notification.alertBody = "Estou Indo!"
+                    subscription.notificationInfo = notification
+                    
+                    self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
+                        guard error == nil else {
+                            // Handle the error here
+                            print("Erro salvando a notificação: \(#file, error?.localizedDescription)")
+                            return
+                        }
+                        
+                        // Save that we have subscribed successfully to keep track and avoid trying to subscribe again
+                        print(#file, "subscribed to estou indo!")
+                    }
+            } else {
+                // do your error handling here!
+                print("Erro mandando a notificacao \(error!.localizedDescription)")
+            }
+        }
+        
+    }
+//    func subscribeForHelpInfo() {
+//        
+//        container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
+//            if error == nil {
+//                if subscriptions!.isEmpty {
+//
+//                    let pred = NSPredicate(value: true)
+//                    let subscription = CKSubscription(recordType:"Helpinfo", predicate: pred, options:[.FiresOnRecordCreation])
+//                    let notification = CKNotificationInfo()
+////                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
+//                    notification.desiredKeys = ["Lat", "Long"]
+//                    notification.shouldSendContentAvailable = true
+//                    notification.shouldBadge = true
+////                    notification.alertBody = "Help"
+//                    subscription.notificationInfo = notification
+//                    
+//                    self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
+//                        guard error == nil else {
+//                            // Handle the error here
+//                            print("Erro salvando a notificação: \(#file, error?.localizedDescription)")
+//                            return
+//                        }
+//                        
+//                        // Save that we have subscribed successfully to keep track and avoid trying to subscribe again
+//                        print(#file, "subscribed for helpinfo!")
+//                    }
+//                    
+//                } else { print(#file, "there's a subscription already!")}
+//                
+//            } else {
+//                // do your error handling here!
+//                print("Erro mandando a notificacao \(error!.localizedDescription)")
+//            }
+//        }
+//    }
 }

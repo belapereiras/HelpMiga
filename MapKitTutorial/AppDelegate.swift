@@ -27,20 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDAO.sharedInstace.getUserID()
         UserDAO.sharedInstace.subscribeForFriendsLocations()
+
         
         //handel push note if app is closed
         //Sends it to the regular handler for push notifcaiton
         //didrecivepushnotificaiton
-        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
-            self.application(application, didReceiveRemoteNotification: remoteNotification as [NSObject : AnyObject])
-        }
-
-        if launchOptions != nil {
-            print(launchOptions)
-            let storyboard = UIStoryboard(name: "Main.storyboard", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TelaPerigo")
-            window?.rootViewController = vc
-        }
+        
+        
+//        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+//            self.application(application, didReceiveRemoteNotification: remoteNotification as [NSObject : AnyObject])
+//        }
+//
+//        if launchOptions != nil {
+//            print(launchOptions)
+//            let storyboard = UIStoryboard(name: "Main.storyboard", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("TelaPerigo")
+//            window?.rootViewController = vc
+//        }
         
         return true
     }
@@ -49,63 +52,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         let cloudKitNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
-        if cloudKitNotification.notificationType == .Query {
-            
-            let queryNotification = cloudKitNotification as! CKQueryNotification
-//            let recordID = queryNotification.recordID
+        print (cloudKitNotification)
 
-            if queryNotification.queryNotificationReason == .RecordDeleted {
-                // If the record has been deleted in CloudKit then delete the local copy here
-            } else  { //if queryNotification.queryNotificationReason == .RecordCreated || .RecordCreated
-                // If the record has been created or changed, we fetch the data from CloudKit
+        if cloudKitNotification.notificationType == .Query {
+//            var query = cloudKitNotification as! CKQueryNotification
+//            var recordID = query.recordID
+            
+            if let queryNotification = cloudKitNotification as? CKQueryNotification {
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("EstouIndo", object: nil)
+                
                 
                 UserDAO.sharedInstace.container.fetchRecordWithID(queryNotification.recordID!, completionHandler: { (record: CKRecord?, error: NSError?) -> Void in
                     guard error == nil else {
                         print(error!.localizedDescription)
                         return
                     }
-                    
-                    if queryNotification.queryNotificationReason == .RecordUpdated {
-                        // Use the information in the record object to modify your local data
-                        print("nada")
-                    } else {
-                        // Use the information in the record object to create a new local object
-                        let latitude = queryNotification.recordFields!["Lat"] as! Double
-                        let longitude = queryNotification.recordFields!["Long"] as! Double
-                        
-                        //                let nome = queryNotification.recordFields!["Nome"] as! String
-                        //                let foto = queryNotification.recordFields!["Foto"] as! CKAsset
-                        
-                        print("QUERY NOTIFICATION:\(queryNotification.recordFields)")
-                        
-                        let userInfo = ["Lat":latitude, "Long":longitude]
-                        
-                        //                let userInfo = ["Lat":latitude, "Long":longitude, "Nome":nome, "Foto":foto]
-                        print("\n\n")
-                        print(userInfo)
-                        
-                        NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
-                    }
+               
+//            let recordID = queryNotification.recordID
+            
+                let lat = record!["Lat"] as! Double
+                let long = record!["Long"] as! Double
+            
+//            let lat = queryNotification.valueForKey("Lat") as! Double
+//            let long = queryNotification.valueForKey("Long") as! Double
+                print ("LAT E LONG DA NOTIFICATION")
+                print(lat)
+                print(long)
+            
+            let userInfo = ["Lat": lat, "Long": long]
+            print ("USER INFO")
+            print (userInfo)
+                
+            NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
+
                 })
- 
-//                let latitude = queryNotification.recordFields!["Lat"] as! Double
-//                let longitude = queryNotification.recordFields!["Long"] as! Double
-//
-////                let nome = queryNotification.recordFields!["Nome"] as! String
-////                let foto = queryNotification.recordFields!["Foto"] as! CKAsset
-//                
-//                print("QUERY NOTIFICATION:\(queryNotification.recordFields)")
-//                
-//                let userInfo = ["Lat":latitude, "Long":longitude]
-//
-////                let userInfo = ["Lat":latitude, "Long":longitude, "Nome":nome, "Foto":foto]
-//                print("\n\n")
-//                print(userInfo)
-//                
-//                NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
             }
         }
     }
+
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -128,7 +114,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
