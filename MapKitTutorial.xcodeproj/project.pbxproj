@@ -27,7 +27,7 @@
 		1B14D2201CAAED2D00FD2A31 /* Tela_Miga_a_Caminho.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tela_Miga_a_Caminho.swift; sourceTree = "<group>"; };
 		1B1EB9F91CA9A436007745D7 /* Tela_Miga_em_Perigo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tela_Miga_em_Perigo.swift; sourceTree = "<group>"; };
 		1B3B253C1CB320EF00F5AA4F /* MapKitTutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MapKitTutorial.entitlements; path = MapKitTutorial/MapKitTutorial.entitlements; sourceTree = "<group>"; };
-		1B43753D1CA2E27A00EC5333 /* MapKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B43753D1CA2E27A00EC5333 /* HelpMiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpMiga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4375401CA2E27A00EC5333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B4375421CA2E27A00EC5333 /* Tela_Botao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tela_Botao.swift; sourceTree = "<group>"; };
 		1B4375451CA2E27A00EC5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		1B43753E1CA2E27A00EC5333 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B43753D1CA2E27A00EC5333 /* MapKitTutorial.app */,
+				1B43753D1CA2E27A00EC5333 /* HelpMiga.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			);
 			name = MapKitTutorial;
 			productName = MapKitTutorial;
-			productReference = 1B43753D1CA2E27A00EC5333 /* MapKitTutorial.app */;
+			productReference = 1B43753D1CA2E27A00EC5333 /* HelpMiga.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -323,7 +323,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HelpMiga;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HelpMiga;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -339,7 +339,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HelpMiga;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HelpMiga;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

@@ -23,13 +23,13 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
 //    let locationManager = CLLocationManager()
     @IBAction func ligarParaMigaEmPerigo(sender: UIButton) {
         
-//        let numero: NSURL = NSURL(string: "tel://999645706")!
-//            UIApplication.sharedApplication().openURL(numero)
+        let numero: NSURL = NSURL(string: "tel://999645706")!
+            UIApplication.sharedApplication().openURL(numero)
         
     }
 
     @IBAction func estouIndoMiga(sender: UIButton) {
-        UserDAO.sharedInstace.saveEstouIndo(lat!, long: long!)
+        performSegueWithIdentifier("irParaMigaCaminho", sender: nil)
         
     }
     
@@ -44,7 +44,7 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "EstouIndo", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "EstouIndo", object: nil)
         
 // MARK: BORDAS ARREDONDADAS
         

@@ -62,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("EstouIndo", object: nil)
                 
-                
                 UserDAO.sharedInstace.container.fetchRecordWithID(queryNotification.recordID!, completionHandler: { (record: CKRecord?, error: NSError?) -> Void in
                     guard error == nil else {
                         print(error!.localizedDescription)
