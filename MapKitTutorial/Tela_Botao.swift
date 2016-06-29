@@ -83,6 +83,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
             self.mapView.setRegion(region, animated: true)
             mapView.showsUserLocation = true
+            self.mapView.setRegion(region, animated: true)
             Location.sharedInstace.locationManager.startUpdatingLocation()
         } else {
             Location.sharedInstace.locationManager.requestWhenInUseAuthorization()

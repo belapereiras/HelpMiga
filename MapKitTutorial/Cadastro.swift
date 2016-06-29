@@ -97,6 +97,7 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
         self.nome.delegate = self
         self.email.delegate = self
         self.senha.delegate = self

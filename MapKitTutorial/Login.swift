@@ -9,6 +9,18 @@
 import UIKit
 import CloudKit
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class Login: UIViewController, UITextFieldDelegate {
     
     let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -34,7 +46,7 @@ class Login: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.hideKeyboardWhenTappedAround()
         self.email.delegate = self
         self.senha.delegate = self
         
