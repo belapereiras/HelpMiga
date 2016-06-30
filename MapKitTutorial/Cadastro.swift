@@ -63,34 +63,62 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         
 //        let selfieImageAsset = CKAsset(fileURL: selfieImageURL!)
 //        let idImageAsset = CKAsset(fileURL: idImageURL!)
+        
         let nomeUsuaria = nome.text
         let emailUsuaria = email.text
         let senhaUsuaria = senha.text
         let repetirSenhaUsuaria = repetirSenha.text
         
-        if imageViewId.image == nil {
-            print ("")
-        } else {
-            idImageAsset = CKAsset(fileURL: idImageURL!)
-        }
-        if imageViewSelfie.image == nil {
-            print ("")
-        } else {
-            selfieImageAsset = CKAsset(fileURL: selfieImageURL!)
-        }
-
-        if nomeUsuaria?.isEmpty == true || emailUsuaria?.isEmpty == true || senhaUsuaria?.isEmpty == true || repetirSenhaUsuaria?.isEmpty == true {
-            alerta ("Todos os campos devem ser preenchidos. Não esqueça das fotos!")
+//        if imageViewId.image == nil {
+//            print ("")
+//        } else {
+//            idImageAsset = CKAsset(fileURL: idImageURL!) // oq eh isso?
+//        }
+//        if imageViewSelfie.image == nil {
+//            print ("")
+//        } else {
+//            selfieImageAsset = CKAsset(fileURL: selfieImageURL!) // e isso?
+//        }
+        
+        guard let selfieURL = selfieImageURL else {
+            alerta("Você não tirou sua selfie!")
             return
         }
+        
+        selfieImageAsset = CKAsset(fileURL: selfieURL)
+        
+        guard let selfieAsset = selfieImageAsset else {
+            alerta("Um erro ocorreu. Tire outra foto!")
+            return
+        }
+        
+        guard let idURL = idImageURL else {
+            alerta("Você não tirou foto do seu documento!")
+            return
+        }
+        
+        idImageAsset = CKAsset(fileURL: idURL)
+        
+        guard let idAsset = idImageAsset else {
+            alerta("Um erro ocorreu. Tire outra foto!")
+            return
+        }
+        
+        
+        if nomeUsuaria?.isEmpty == true || emailUsuaria?.isEmpty == true || senhaUsuaria?.isEmpty == true || repetirSenhaUsuaria?.isEmpty == true {
+            alerta ("Todos os campos devem ser preenchidos!")
+            return
+        }
+        
         if senhaUsuaria != repetirSenhaUsuaria {
             alerta ("As senhas não combinam")
             return
         }
-        else {
-            alerta("Seus cadastro foi enviado com sucesso! Aguarde 1 dia útil para a aprovação. Enviaremos a resposta por email.")
             
-            UserDAO.sharedInstace.saveUser(nomeUsuaria!, email: emailUsuaria!, senha: senhaUsuaria!, id: idImageAsset!, selfie: selfieImageAsset!)
+        else {
+            alerta2("Seus cadastro foi enviado com sucesso! Aguarde 1 dia útil para a aprovação. Enviaremos a resposta por email.")
+            
+            UserDAO.sharedInstace.saveUser(nomeUsuaria!, email: emailUsuaria!, senha: senhaUsuaria!, id: idAsset, selfie: selfieAsset)
         }
     }
 
@@ -113,6 +141,16 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.presentViewController(meuAlerta, animated: true, completion: nil)
         })
     }
+    
+    func alerta2(userMessage: String){
+        
+        let meuAlerta2 = UIAlertController(title: "Boa, miga!", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        meuAlerta2.addAction(okButton)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.presentViewController(meuAlerta2, animated: true, completion: nil)
+        })
+
 
     func textFieldShouldReturn(userText: UITextField) -> Bool {
         userText.resignFirstResponder()
@@ -169,4 +207,4 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
    
 }
 
-  
+}
