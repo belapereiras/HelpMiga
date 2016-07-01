@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate{
+class ViewController: UIViewController, MKMapViewDelegate {
     
     
 // MARK: STORYBOARD
@@ -72,6 +72,16 @@ class ViewController: UIViewController, MKMapViewDelegate{
         //addObservers()
         Location.sharedInstace.start()
         
+        let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
+        self.mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.showsUserLocation = true
+        
+        
+        Location.sharedInstace.locationManager.startUpdatingLocation()
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
         
     }
@@ -79,12 +89,6 @@ class ViewController: UIViewController, MKMapViewDelegate{
    
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-            self.mapView.setRegion(region, animated: true)
-            mapView.showsUserLocation = true
-            self.mapView.setRegion(region, animated: true)
-            Location.sharedInstace.locationManager.startUpdatingLocation()
         } else {
             Location.sharedInstace.locationManager.requestWhenInUseAuthorization()
         }

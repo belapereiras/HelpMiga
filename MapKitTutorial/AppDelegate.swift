@@ -72,9 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 let lat = record!["Lat"] as! Double
                 let long = record!["Long"] as! Double
-            
-//            let lat = queryNotification.valueForKey("Lat") as! Double
-//            let long = queryNotification.valueForKey("Long") as! Double
+
                 print ("LAT E LONG DA NOTIFICATION")
                 print(lat)
                 print(long)

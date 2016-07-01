@@ -33,7 +33,6 @@ class Location: NSObject, CLLocationManagerDelegate {
         } else {
             print(#file, "starting to update locations")
             locationManager.startUpdatingLocation()
-            locationManager.stopUpdatingLocation()
         }
     }
     

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B43753C1CA2E27A00EC5333"
-               BuildableName = "MapKitTutorial.app"
+               BuildableName = "HelpMiga.app"
                BlueprintName = "MapKitTutorial"
                ReferencedContainer = "container:MapKitTutorial.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B43753C1CA2E27A00EC5333"
-            BuildableName = "MapKitTutorial.app"
+            BuildableName = "HelpMiga.app"
             BlueprintName = "MapKitTutorial"
             ReferencedContainer = "container:MapKitTutorial.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B43753C1CA2E27A00EC5333"
-            BuildableName = "MapKitTutorial.app"
+            BuildableName = "HelpMiga.app"
             BlueprintName = "MapKitTutorial"
             ReferencedContainer = "container:MapKitTutorial.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B43753C1CA2E27A00EC5333"
-            BuildableName = "MapKitTutorial.app"
+            BuildableName = "HelpMiga.app"
             BlueprintName = "MapKitTutorial"
             ReferencedContainer = "container:MapKitTutorial.xcodeproj">
          </BuildableReference>

@@ -110,12 +110,15 @@ class UserDAO {
     func saveAskHelp(location: CLLocation) {
             
 //            let helpID = CKRecordID(recordName: "Help" + (userRecordID?.recordName)!)
-//            let helpRecord = CKRecord(recordType: "Help", recordID: helpID)
-            let helpRecord = CKRecord(recordType: "Help")
+//              let helpRecord = CKRecord(recordType: "Help", recordID: helpID)
+        let helpRecord = CKRecord(recordType: "Help")
+        let usersHelpMigaID = CKRecordID(recordName: "UsersHelpMiga" + (userRecordID?.recordName)!)
+        let userReference = CKReference(recordID: usersHelpMigaID, action: CKReferenceAction.DeleteSelf)
             
-            helpRecord.setObject(location, forKey: "Location")
-            helpRecord.setObject(location.coordinate.latitude, forKey: "Lat")
-            helpRecord.setObject(location.coordinate.longitude, forKey: "Long")
+        helpRecord.setObject(location, forKey: "Location")
+        helpRecord.setObject(location.coordinate.latitude, forKey: "Lat")
+        helpRecord.setObject(location.coordinate.longitude, forKey: "Long")
+        helpRecord.setObject(userReference, forKey: "User")
             
             self.save(helpRecord)
         print ("PEDIU HELP")

@@ -150,6 +150,8 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         dispatch_async(dispatch_get_main_queue(), {
             self.presentViewController(meuAlerta2, animated: true, completion: nil)
         })
+        
+    }
 
 
     func textFieldShouldReturn(userText: UITextField) -> Bool {
@@ -159,6 +161,7 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
+        print ("ENTREI>>>>>>>>>>>>>>>>>>>>>>")
         botaoImagem.image = image
 //        imageViewSelfie.image = image
 //        imageViewId.image = image
@@ -207,4 +210,3 @@ class Cadastro: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
    
 }
 
-}

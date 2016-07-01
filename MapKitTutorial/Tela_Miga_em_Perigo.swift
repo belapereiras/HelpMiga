@@ -45,27 +45,15 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         super.viewDidLoad()
         
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "EstouIndo", object: nil)
-        
-// MARK: BORDAS ARREDONDADAS
-        
-        
+
         fotoMigaEmPerigo.layer.cornerRadius = fotoMigaEmPerigo.frame.size.width/2
         fotoMigaEmPerigo.clipsToBounds = true
-        
-        
         rotaParaMigaEmPerigo.layer.cornerRadius = rotaParaMigaEmPerigo.frame.size.width/12
         rotaParaMigaEmPerigo.clipsToBounds = true
-        
-        
-//MARK: BORDA BRANCA
-        
+
         self.fotoMigaEmPerigo.layer.borderWidth = 4.0
         self.fotoMigaEmPerigo.layer.borderColor = UIColor.whiteColor().CGColor;
-        
-        
-// MARK: MAP VIEW
-        
-        
+
 //        self.locationManager.delegate = self
 //        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 //        self.locationManager.requestWhenInUseAuthorization()
