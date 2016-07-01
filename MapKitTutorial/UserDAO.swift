@@ -156,17 +156,32 @@ class UserDAO {
             self.userRecordID = recordID
         }
     }
+    
+    func queryUserReference(userReference: CKReference) -> String {
+        var nome: String = ""
+        
+        UserDAO.sharedInstace.container.fetchRecordWithID(userReference.recordID, completionHandler: { (record: CKRecord?, error: NSError?) -> Void in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            nome = record!["Nome"] as! String
+        })
+        return nome
+    }
 
     
     func subscribeForFriendsLocations() {
-        
+    
         container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
             if error == nil {
                 if subscriptions!.isEmpty {
                     
                     let radiusInMeters = 500
 //                    let pred = NSPredicate(value: true)
-                    let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f", "Location", Location.sharedInstace.lastLocation, radiusInMeters)
+                    let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f", "Location",
+                                    Location.sharedInstace.lastLocation, radiusInMeters)
+                    
                     
                     let subscription = CKSubscription(recordType:"Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     

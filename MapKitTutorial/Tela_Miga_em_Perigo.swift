@@ -9,10 +9,13 @@
 import UIKit
 import MapKit
 
+
 class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var lat: Double?
     var long: Double?
+    var userNome: String?
+    
     
 // MARK: STORYBOARD
     
@@ -59,6 +62,10 @@ class ViewController2: UIViewController, MKMapViewDelegate, CLLocationManagerDel
 //        self.locationManager.requestWhenInUseAuthorization()
 //        self.locationManager.startUpdatingLocation()
 //        self.rotaParaMigaEmPerigo.showsUserLocation = true
+        
+        
+        print("NOME DA MIGA>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        print(userNome)
         
     }
     

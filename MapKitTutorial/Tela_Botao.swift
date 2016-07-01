@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class ViewController: UIViewController, MKMapViewDelegate {
     
     
@@ -42,15 +43,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         if let lat = notification.userInfo?["Lat"] as? Double {
             if let long = notification.userInfo?["Long"] as? Double {
-                
-                
-                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+                if let userReference = notification.userInfo?["User"] as? String {
+                    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
                     
-                    if(segue.identifier == "irParaMiga") {
+                        if(segue.identifier == "irParaMiga") {
                         
-                        let yourNextViewController = (segue.destinationViewController as! ViewController2)
-                        yourNextViewController.lat = lat
-                        yourNextViewController.long = long
+                            let yourNextViewController = (segue.destinationViewController as! ViewController2)
+                            yourNextViewController.lat = lat
+                            yourNextViewController.long = long
+                            yourNextViewController.userNome = userReference
+                        }
                     }
                 }
 
@@ -69,18 +71,18 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         checkLocationAuthorizationStatus()
-        //addObservers()
+//        addObservers()
         Location.sharedInstace.start()
+//        Location.sharedInstace.locationManager.startUpdatingLocation()
         
         let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
         self.mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
         self.mapView.setRegion(region, animated: true)
         self.mapView.showsUserLocation = true
         
         
-        Location.sharedInstace.locationManager.startUpdatingLocation()
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
         
