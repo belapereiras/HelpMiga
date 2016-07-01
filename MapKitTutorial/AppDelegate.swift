@@ -70,21 +70,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                     let lat = record!["Lat"] as! Double
                     let long = record!["Long"] as! Double
-                    let userReference = record!["UserReference"] as! CKReference
+                    let userReference = record!["User"] as! CKReference
 
                     print ("LAT E LONG DA NOTIFICATION")
                     print(lat)
                     print(long)
                     print(userReference)
                     
-                    let nome = UserDAO.sharedInstace.queryUserReference(userReference)
+                    let userInfo = ["Lat": lat, "Long": long]
+
+                    UserDAO.sharedInstace.queryUserReference(userReference, withInfo: userInfo)
             
-                    let userInfo = ["Lat": lat, "Long": long, "User": nome]
                     print ("USER INFO")
                     print (userInfo)
-                
-                    NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
-
                 })
             }
         }

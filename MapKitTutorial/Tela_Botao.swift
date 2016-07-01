@@ -41,28 +41,27 @@ class ViewController: UIViewController, MKMapViewDelegate {
 //        let latHelp = notification.userInfo!["Lat"] as! Double
 //        let lngHelp = notification.userInfo!["Long"] as! Double
         
-        if let lat = notification.userInfo?["Lat"] as? Double {
-            if let long = notification.userInfo?["Long"] as? Double {
-                if let userReference = notification.userInfo?["User"] as? String {
-                    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-                    
-                        if(segue.identifier == "irParaMiga") {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.performSegueWithIdentifier("irParaMiga", sender: notification)
+        })
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) { // não seria performSegue ?
+        
+        if(segue.identifier == "irParaMiga") {
+            
+            if let lat = sender!.userInfo?["Lat"] as? Double {
+                if let long = sender!.userInfo?["Long"] as? Double {
+                    if let name = sender!.userInfo?["Nome"] as? String {
                         
-                            let yourNextViewController = (segue.destinationViewController as! ViewController2)
-                            yourNextViewController.lat = lat
-                            yourNextViewController.long = long
-                            yourNextViewController.userNome = userReference
-                        }
+                        let yourNextViewController = (segue.destinationViewController as! ViewController2)
+                        yourNextViewController.lat = lat
+                        yourNextViewController.long = long
+                        yourNextViewController.userNome = name
                     }
                 }
-
-
-//        let nome = notification.userInfo!["Nome"] as! String
-
-        print("CHEGOU NOTIFICAÇÃO \(long), \(lat)")
-        dispatch_async(dispatch_get_main_queue(), {
-        self.performSegueWithIdentifier("irParaMiga", sender: nil)
-        })
             }
         }
     }
@@ -75,15 +74,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
         Location.sharedInstace.start()
 //        Location.sharedInstace.locationManager.startUpdatingLocation()
         
-        let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
-        self.mapView.setRegion(region, animated: true)
-        self.mapView.setRegion(region, animated: true)
+//        let center = CLLocationCoordinate2D(latitude: Location.sharedInstace.lastLocation.coordinate.latitude, longitude: Location.sharedInstace.lastLocation.coordinate.longitude)
+//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.0075, longitudeDelta: 0.0075))
+//        self.mapView.setRegion(region, animated: true)
+        
         self.mapView.showsUserLocation = true
-        
-        
-        
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateLocation(_:)), name: "newHelp", object: nil)
         
     }

@@ -10,12 +10,34 @@ import Foundation
 import CoreLocation
 import CloudKit
 
+class UsersInHelp {
+    
+    var name:String?
+    var lat:Double?
+    var lng:Double?
+}
+
+
 class UserDAO {
     
     
     
-    var currentRecord: CKRecord?
+//    var currentRecord: CKRecord?
     static let sharedInstace = UserDAO()
+    var userHelpResquests:[UsersInHelp] = [] {
+        didSet {
+            let newUserInHelp = userHelpResquests.last
+            
+            let userInfo = ["Nome" : (newUserInHelp?.name)! as String,
+                            "Lat" : (newUserInHelp?.lat)! as Double,
+                            "Long" : (newUserInHelp?.lng)! as Double]
+            
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("newHelp", object: nil, userInfo: userInfo as [NSObject : AnyObject])
+
+        }
+    }
+    
     
     let container = CKContainer(identifier: "iCloud.HelpMiga").publicCloudDatabase
 //    let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
@@ -157,17 +179,21 @@ class UserDAO {
         }
     }
     
-    func queryUserReference(userReference: CKReference) -> String {
-        var nome: String = ""
+    func queryUserReference(userReference: CKReference, withInfo:[NSObject : AnyObject])  { //-> String
+        
+        let userInHelp = UsersInHelp()
+        userInHelp.lat = withInfo["lat"] as? Double
+        userInHelp.lng = withInfo["lng"] as? Double
         
         UserDAO.sharedInstace.container.fetchRecordWithID(userReference.recordID, completionHandler: { (record: CKRecord?, error: NSError?) -> Void in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
             }
-            nome = record!["Nome"] as! String
+            
+            userInHelp.name = record!["Nome"] as? String
+            self.userHelpResquests.append(userInHelp)
         })
-        return nome
     }
 
     
@@ -186,10 +212,7 @@ class UserDAO {
                     let subscription = CKSubscription(recordType:"Help", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     
                     let notification = CKNotificationInfo()
-                    notification.desiredKeys = ["Lat", "Long"]
-//                    notification.desiredKeys = ["Location"]
-//                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
-//                    notification.shouldSendContentAvailable = true
+                    notification.desiredKeys = ["Lat", "Long", "User"]
                     notification.shouldBadge = true
                     notification.alertBody = "Uma miga precisa de ajuda!"
                     subscription.notificationInfo = notification
@@ -214,20 +237,27 @@ class UserDAO {
         }
     }
     
-    func subscribeEstouIndo() {
+    func subscribeHelpResponse() {
         
         container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
             if error == nil {
+                if subscriptions!.isEmpty {
                     
-                    let pred = NSPredicate(value: true)
+                    let radiusInMeters = 500
+                    //                    let pred = NSPredicate(value: true)
+                    let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f", "Location",
+                        Location.sharedInstace.lastLocation, radiusInMeters)
                     
                     
-                    let subscription = CKSubscription(recordType:"EstouIndo", predicate: pred, options:[.FiresOnRecordCreation])
+                    let subscription = CKSubscription(recordType:"HelpResponse", predicate: predicate, options:[.FiresOnRecordCreation, .FiresOnRecordUpdate])
                     
                     let notification = CKNotificationInfo()
-
+                    notification.desiredKeys = ["Lat", "Long", "User"]
+                    //                    notification.desiredKeys = ["Location"]
+                    //                    notification.desiredKeys = ["Lat", "Long"] //trocar por Location
+                    //                    notification.shouldSendContentAvailable = true
                     notification.shouldBadge = true
-                    notification.alertBody = "Estou Indo!"
+                    notification.alertBody = "Uma miga precisa de ajuda!"
                     subscription.notificationInfo = notification
                     
                     self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
@@ -238,15 +268,53 @@ class UserDAO {
                         }
                         
                         // Save that we have subscribed successfully to keep track and avoid trying to subscribe again
-                        print(#file, "subscribed to estou indo!")
+                        print(#file, "subscribed!")
                     }
+                    
+                } else { print(#file, "there's a subscription already!")}
+                
             } else {
                 // do your error handling here!
                 print("Erro mandando a notificacao \(error!.localizedDescription)")
             }
         }
-        
     }
+    
+    
+//    
+//    func subscribeEstouIndo() {
+//        
+//        container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
+//            if error == nil {
+//                    
+//                    let pred = NSPredicate(value: true)
+//                    
+//                    
+//                    let subscription = CKSubscription(recordType:"EstouIndo", predicate: pred, options:[.FiresOnRecordCreation])
+//                    
+//                    let notification = CKNotificationInfo()
+//
+//                    notification.shouldBadge = true
+//                    notification.alertBody = "Estou Indo!"
+//                    subscription.notificationInfo = notification
+//                    
+//                    self.container.saveSubscription(subscription) { (subscription: CKSubscription?, error: NSError?) -> Void in
+//                        guard error == nil else {
+//                            // Handle the error here
+//                            print("Erro salvando a notificação: \(#file, error?.localizedDescription)")
+//                            return
+//                        }
+//                        
+//                        // Save that we have subscribed successfully to keep track and avoid trying to subscribe again
+//                        print(#file, "subscribed to estou indo!")
+//                    }
+//            } else {
+//                // do your error handling here!
+//                print("Erro mandando a notificacao \(error!.localizedDescription)")
+//            }
+//        }
+//        
+//    }
 //    func subscribeForHelpInfo() {
 //        
 //        container.fetchAllSubscriptionsWithCompletionHandler() { (subscriptions, error) -> Void in //[unowned self]
